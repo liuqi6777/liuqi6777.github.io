@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>信息检索学习笔记 1：索引</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=AI,Notes>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Liu Qi&#39;s Homepage" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+  <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$']],
+	        processEscapes: true
+	    }
+	});
+</script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+  <body>
+    <main class="container-fluid">
+        <div class="flex-md-wrap">
+            <header class="header">
+    <img src="https://s2.loli.net/2022/01/24/YzZsVQcJno2aetE.png" class="profile">
+    <h1 class="profile-name">Qi Liu</h1>
+
+    <ul class="nav justify-content-center">
+        
+            <li class="nav-item">
+            <a href="/" class="nav-link active">Home</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/posts" class="nav-link active">Posts</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/Projects" class="nav-link active">Projects</a>
+             </li>
+        
+            <li class="nav-item">
+            <a target="_blank" rel="noopener" href="https://github.com/liuqi6777" class="nav-link active">GitHub</a>
+             </li>
+        
+    </ul>
+
+    <div></div>
+
+</header>
+<div class="content">
+    <div class="header-title">
+    <h1">信息检索学习笔记 1：索引</h1>
+  </div>
+  <p>
+        <span>
+            <i class="bi bi-calendar-date"></i>2022-05-13
+        </span>
+        <span>
+            <i class="bi bi-folder"></i>
+            
+        </span>
+        <span><i class="bi bi-tags"></i>
+<!--             [object Object] -->
+        </span>
+  </p>
+<!--      -->
+  <div>
+  <h1 id="信息检索学习笔记-1：索引"><a href="#信息检索学习笔记-1：索引" class="headerlink" title="信息检索学习笔记 1：索引"></a>信息检索学习笔记 1：索引</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在看信息检索领域预训练模型的一篇综述，感觉基础还是有些欠缺，想快速补一下信息检索领域的基础知识。于是找到了《Introduction to Information Retrieve》这本书开始自学。虽然这本书成书时间较早，现代的融合深度学习的检索技术并未涉及，但仍不失为一本经典入门著作。作者是斯坦福教授 Manning，在斯坦福也开了对应的课程 CS276，可惜没有公开上课视频。不过结合书和 slides，再做一下课程项目，自学倒也问题不大。</p>
+<h2 id="信息检索"><a href="#信息检索" class="headerlink" title="信息检索"></a>信息检索</h2><p>信息检索是从从大规模非结构化数据集中找出满足用户信息需求的资料的过程。</p>
+<p>在信息检索任务中，我们通常有若干<strong>文档</strong>（document）。指检索系统的检索对象，可以是一条记录、一篇文章或一个网页。在不同的检索任务中我们需要选择不同的<strong>索引粒度</strong>。所有的文档组成<strong>文档集</strong>（collection），或称<strong>语料库</strong>（corpus）。在 ad hoc 检索（ad hoc retrieval）任务中，用户的信息需求通过<strong>查询</strong>（query）提交给系统，系统从文档集中返回与其<strong>相关</strong>（relevant）的文档。</p>
+<h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>对于检索任务，如何判断查询词和文档是否相关？最简单也是最直接的方法，就是判断某个文档中有没有该查询词。举个例子，假设有文档集</p>
+<p><strong>doc 1</strong>: I like NLP.</p>
+<p><strong>doc 2</strong>: I like Information Retrieval.</p>
+<p><strong>doc 3</strong>: Do you like NLP?</p>
+<p>给定查询 Retrieval，那么显然，返回的相关的文档是 doc 2。这便是信息检索最简单的思想。为了达到这个目的，我们就需要事先知道每个文档里面有哪些<strong>词项</strong>（term）出现。自然地，如果我们知道一共有哪些文档、哪些词项，便可以构建一个 0-1 矩阵：</p>
+<script type="math/tex; mode=display">
+\begin{matrix}
+ & \text{doc 1} & \text{doc 2} & \text{doc 3} \\
+\text{I} & 1 & 1 & 0 \\
+\text{like} & 1 & 1 & 1\\
+\text{NLP} & 1 & 0 & 1\\
+\text{Information} & 0 & 1 & 0 \\
+\text{Retrieval} & 0 & 1 & 0 \\
+\text{Do} & 0 & 0 & 1 \\
+\text{You} & 0 & 0 & 1 \\
+\end{matrix}</script><p>在这里，我们将每个“词”当作一个“词项”（词项通常可以用词表示，但事实上，词项还可能是词组），并忽略了标点符号。这个矩阵成为<strong>词项-文档关联矩阵</strong>，其行代表每个词项对应的文档向量，表示词项在哪些文档中出现或不出现；其列来表示每个文档对应的词项向量，表示文档中哪些词项出现或不出现。</p>
+<p>有了这样一个矩阵，我们便可以得到词项在哪些文档中出现，并且可以通过布尔操作（AND、OR、NOT）轻松地完成“多个查询词同时出现的文档”等操作（AND 操作）。</p>
+<p>例如：I AND NLP 的结果为 doc 1，Information OR you 的结果为 doc 2 和 doc 3。</p>
+<p>但是，当文档集变大，其中包含的词项将会非常多，词项-文档关联矩阵将占用巨大的存储空间。考虑一个文档数量为 100 万，词项数为 50 万的文档集，那么这个矩阵共有 5000 亿个元素，远远大于计算机的容量！不难发现，这个庞大的矩阵实际上高度<strong>稀疏</strong>（sparse），即大部分元素都是 0 而只有很少元素是 1。假设每个文档有 1000 个单词，那么矩阵中最多也就只有 1000 x 1000000 个 1，只占了元素总数的 0.2%。</p>
+<p>由此引出了信息检索的一个核心概念——倒排索引（inverted index）。</p>
+<p><img src="https://s2.loli.net/2022/05/15/6LnS4Q2sE8Twuyx.jpg" alt="63dec0cd5503fc896a464f23d110acb.jpg"  /></p>
+<p>倒排索引的基本思想为只记录词项出现的文档。如图所示，左部称为词项词典（dictionary）。每个词项都有一个记录出现该词项的所有文档的列表，表中的每个元素记录的是词项在某文档中的一次出现信息，称为倒排记录（posting），词项对应的整个表称为倒排记录表（posting list）。所有词项及其对应的所有倒排记录表共同组成倒排索引。</p>
+<h2 id="建立倒排索引"><a href="#建立倒排索引" class="headerlink" title="建立倒排索引"></a>建立倒排索引</h2><p>建立索引的主要步骤如下：</p>
+<ul>
+<li>收集需要建立索引的文档</li>
+<li>将每篇文档转换成一个个词条（token）</li>
+<li>进行预处理，产生归一化的词条作为词项</li>
+<li>对所有文档按照其中出现的词项做索引构建（indexing）</li>
+</ul>
+<p>我们分两部分进行讨论，前三步确定词项集合，第四步构建索引。</p>
+<h3 id="词项集合的确定"><a href="#词项集合的确定" class="headerlink" title="词项集合的确定"></a>词项集合的确定</h3><p><strong>词条化（tokenize）</strong>：定义好文档单位之后，词条化是将给定的字符序列根据一定的规则（例如根据空格）拆分成一系列词条（token）的过程。在这个过程中，可能会同时去掉一些特殊字符，如标点符号等。在非严格的情况下，词条往往和词项或词通用。然而，有时我们需要对词条和词条类进行严格的区分。</p>
+<p><strong>去除停用词（stop words）</strong>：在一些情况下，部分常见词在检索时价值不大，需要从词表中删去。这些词称为停用词。一个常用的生成停用词表的方法就是将词项按照在文档集中出现的频率从高到低排列，选择那些语义内容与文档主题关系不大的高频词作为停用词。常见的停用词包括连词、介词等，例如中文连用词中的“和”、“并且”等。</p>
+<p><strong>词条归一化（normalization）</strong>：词条归一化是将看起来不完全一致的多个词条归纳成一个等价类， 以便在它们之间进行匹配的过程 。例如统一大小写、构建同义词表等等。</p>
+<h3 id="索引构建"><a href="#索引构建" class="headerlink" title="索引构建"></a>索引构建</h3><p>同样使用上面的例子，我们可以通过排序和合并构建倒排索引，如图所示。</p>
+<p><img src="https://s2.loli.net/2022/05/15/RhyFp3jOrtnEeAW.jpg" alt="c155309d54ca525612778a74b8bdb1d.jpg"  /></p>
+<ul>
+<li>首先，我们扫描一遍文档集合得到所有的词项—文档 ID 对。</li>
+<li>然后，我们以词项为主键、文档 ID 为次键进行排序。</li>
+<li>最后，将每个词项的文档 ID 组织成倒排记录表，并计算诸如词项频率或者文档频率的统计量。</li>
+</ul>
+<p>当文档集不大时，以上操作均可在内存中完成。当文档和词项数量达到一定规模，我们便需要引入一些新的算法，包括基于块的排序索引方法、分布式索引构建方法、以及索引压缩等等。由于课程第一个项目涉及到相关内容，因此会在下一篇项目报告的推送中进行整理。</p>
+
+  <div>
+</div>
+<!-- <footer>
+  &copy; 2022
+  <span class="author">
+    Liu Qi
+  </span>
+</footer> -->
+        </div>
+    </main>
+  </body>
+</html>

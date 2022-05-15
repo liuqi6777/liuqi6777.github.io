@@ -95,7 +95,7 @@
 <p>The authors came up with two models: continuous bag-of-word model and skip-gram model. The former takes the context as input and the center word as output, while the latter does the opposite. Both of them work.</p>
 <p>Besides, they also came up with some training skills, which can greatly improve training speed can effects.</p>
 <h1 id="Models-of-Word2vec"><a href="#Models-of-Word2vec" class="headerlink" title="Models of Word2vec"></a>Models of Word2vec</h1><h2 id="Continuous-Bag-of-word-CBOW"><a href="#Continuous-Bag-of-word-CBOW" class="headerlink" title="Continuous Bag-of-word(CBOW)"></a>Continuous Bag-of-word(CBOW)</h2><p>CBOW takes the context as input and predict a center word from the surrounding context.</p>
-<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303220538726.png" alt="image-20220303220538726" style="zoom:33%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/15/X76rntNIQ4D9zfB.png" alt="image.png" style="zoom: 33%;" /></p>
 <p>Consider a CBOW model, we define</p>
 <ul>
 <li><strong><em>Input vectors</em></strong> $\boldsymbol{x}^{(c)}$, which are both one-hot.</li>
@@ -124,13 +124,11 @@
 J = - \sum_{j=1}^{|V|} y_j \log \hat y_j</script><p>Notice that the vector $\boldsymbol{y}$ is also one-hot, so we get</p>
 <script type="math/tex; mode=display">
 J = - \log\hat y_j = -\log \frac{\exp(\boldsymbol{u}_j^T\boldsymbol{h})}{\sum_{j'=1}^{|V|}\exp(\boldsymbol{u}_{j'}^T\boldsymbol{h})} = - \boldsymbol{u}_j^T\boldsymbol{h} + \log \sum_{j'=1}^{|V|}\exp(\boldsymbol{u}_{j'}^T\boldsymbol{h})</script></li>
-<li><p>Then we can use <em>stochastic gradient descent</em> to update all relevant word matrices $\boldsymbol{U}$ and $\boldsymbol{V}$. Here I give the result of some useful partial derivatives:</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial \boldsymbol{V}} = \\
-\frac{\partial J}{\partial \boldsymbol{U}} = \\</script></li>
+<li><p>Then we can use <em>stochastic gradient descent</em> to update all relevant word matrices $\boldsymbol{U}$ and $\boldsymbol{V}$.</p>
+</li>
 </ol>
 <h2 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h2><p>Another approach is to create a model such that given the center word, the model will be able to predict or generate the surrounding words. Here we call the word “jumped” the context. We call this type of model a Skip-Gram model.</p>
-<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303220520773.png" alt="image-20220303220520773" style="zoom:33%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/15/Rda7MsYEprmFBPe.png" alt="image.png" style="zoom:33%;" /></p>
 <p>Let’s discuss the Skip-Gram model above.</p>
 <ul>
 <li>The setup is largely the same but we essentially swap our $\boldsymbol{x}$ and $\boldsymbol{y}$. The only one input one-hot vector (center word) we will represent with an $\boldsymbol{x}$. And the output vectors as $\boldsymbol{y}^{(j)}$ .</li>
@@ -158,12 +156,10 @@ J &= -\log P(w_{c-m}, \cdots, w_{c-1}, w_{c+1}, \cdots, w_{c+m} \mid w_c) \\
 \end{aligned}</script><p>Actually, it just calculate the cross-entropy between the probability vector $\hat{\boldsymbol{y}}$ and every one-hot vectors, and sum them.</p>
 </li>
 <li><p>With this objective function, we can compute the gradients with respect to the unknown parameters and at each iteration update them via Stochastic Gradient Descent.</p>
-<script type="math/tex; mode=display">
-\frac{\partial J}{\partial \boldsymbol{V}} = \\
-\frac{\partial J}{\partial \boldsymbol{U}} = \\</script></li>
+</li>
 </ol>
 <h1 id="Training-tricks-of-Word2vec"><a href="#Training-tricks-of-Word2vec" class="headerlink" title="Training tricks of Word2vec"></a>Training tricks of Word2vec</h1><h2 id="Hierarchical-SoftMax"><a href="#Hierarchical-SoftMax" class="headerlink" title="Hierarchical SoftMax"></a>Hierarchical SoftMax</h2><p>Hierarchical softmax is an efficient way of computing softmax. The model uses a binary tree to represent all words in the vocabulary. The $V$ words must be leaf units of the tree. It can be proved that there are $V − 1$ inner units. For each leaf unit, there exists a unique path from the root to the unit; and this path is used to estimate the probability of the word represented by the leaf unit.</p>
-<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303235508784.png" alt="image-20220303235508784" style="zoom:33%;" /></p>
+<p><img src="https://s2.loli.net/2022/05/15/wbDvIV9EGW8iOsx.png" alt="image.png" style="zoom:33%;" /></p>
 <p>In the hierarchical softmax model, there is no output vector representation for words. Instead, each of the $V − 1$ inner units has an output vector $\boldsymbol{v}_{n(w,j)}$. And the probability of a word being the output word is defined as</p>
 <script type="math/tex; mode=display">
 P(w = w_O) = \prod_{j=1}^{L(w)-1} \sigma([n(w, j+1) = \mathrm{ch}(n(w, j))] \cdot \boldsymbol{v}_{n(w,j)}^T \boldsymbol{h})</script><p>where $\mathrm{ch}(n)$ is the <em>left child</em> of unit $n$, $[x]$ is a special function defined as</p>
