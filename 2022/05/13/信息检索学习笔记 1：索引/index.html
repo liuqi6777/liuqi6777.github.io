@@ -90,7 +90,7 @@
   </p>
 <!--      -->
   <div>
-  <h1 id="信息检索学习笔记-1：索引"><a href="#信息检索学习笔记-1：索引" class="headerlink" title="信息检索学习笔记 1：索引"></a>信息检索学习笔记 1：索引</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在看信息检索领域预训练模型的一篇综述，感觉基础还是有些欠缺，想快速补一下信息检索领域的基础知识。于是找到了《Introduction to Information Retrieve》这本书开始自学。虽然这本书成书时间较早，现代的融合深度学习的检索技术并未涉及，但仍不失为一本经典入门著作。作者是斯坦福教授 Manning，在斯坦福也开了对应的课程 CS276，可惜没有公开上课视频。不过结合书和 slides，再做一下课程项目，自学倒也问题不大。</p>
+  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近在看信息检索领域预训练模型的一篇综述，感觉基础还是有些欠缺，想快速补一下信息检索领域的基础知识。于是找到了《Introduction to Information Retrieve》这本书开始自学。虽然这本书成书时间较早，现代的融合深度学习的检索技术并未涉及，但仍不失为一本经典入门著作。作者是斯坦福教授 Manning，在斯坦福也开了对应的课程 CS276，可惜没有公开上课视频。不过结合书和 slides，再做一下课程项目，自学倒也问题不大。</p>
 <h2 id="信息检索"><a href="#信息检索" class="headerlink" title="信息检索"></a>信息检索</h2><p>信息检索是从从大规模非结构化数据集中找出满足用户信息需求的资料的过程。</p>
 <p>在信息检索任务中，我们通常有若干<strong>文档</strong>（document）。指检索系统的检索对象，可以是一条记录、一篇文章或一个网页。在不同的检索任务中我们需要选择不同的<strong>索引粒度</strong>。所有的文档组成<strong>文档集</strong>（collection），或称<strong>语料库</strong>（corpus）。在 ad hoc 检索（ad hoc retrieval）任务中，用户的信息需求通过<strong>查询</strong>（query）提交给系统，系统从文档集中返回与其<strong>相关</strong>（relevant）的文档。</p>
 <h2 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h2><p>对于检索任务，如何判断查询词和文档是否相关？最简单也是最直接的方法，就是判断某个文档中有没有该查询词。举个例子，假设有文档集</p>
