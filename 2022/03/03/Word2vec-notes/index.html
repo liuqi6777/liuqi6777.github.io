@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Notes for Word2vec</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=AI,Notes>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Liu Qi&#39;s Homepage" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+  <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$']],
+	        processEscapes: true
+	    }
+	});
+</script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+  <body>
+    <main class="container-fluid">
+        <div class="flex-md-wrap">
+            <header class="header">
+    <img src="https://s2.loli.net/2022/01/24/YzZsVQcJno2aetE.png" class="profile">
+    <h1 class="profile-name">Qi Liu</h1>
+
+    <ul class="nav justify-content-center">
+        
+            <li class="nav-item">
+            <a href="/" class="nav-link active">Home</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/posts" class="nav-link active">Posts</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/Projects" class="nav-link active">Projects</a>
+             </li>
+        
+            <li class="nav-item">
+            <a target="_blank" rel="noopener" href="https://github.com/liuqi6777" class="nav-link active">GitHub</a>
+             </li>
+        
+    </ul>
+
+    <div></div>
+
+</header>
+<div class="content">
+    <div class="header-title">
+    <h1">Notes for Word2vec</h1>
+  </div>
+  <p>
+        <span>
+            <i class="bi bi-calendar-date"></i>2022-03-03
+        </span>
+        <span>
+            <i class="bi bi-folder"></i>
+            
+        </span>
+        <span><i class="bi bi-tags"></i>
+<!--             [object Object] -->
+        </span>
+  </p>
+<!--      -->
+  <div>
+  <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><p>Word2vec is an efficient model to represent words in vector space. With this method, one word can be represented as a n-dim vector and we can see that it has some good property.</p>
+<p>So how can we get these vectors? The core idea of Word2vec is to train on large scale corpus, and get the parameters of the model as the word representation. In this method, we define “Central word” and “Context”, thinking of them as inputs and outputs.</p>
+<p>The authors came up with two models: continuous bag-of-word model and skip-gram model. The former takes the context as input and the center word as output, while the latter does the opposite. Both of them work.</p>
+<p>Besides, they also came up with some training skills, which can greatly improve training speed can effects.</p>
+<h1 id="Models-of-Word2vec"><a href="#Models-of-Word2vec" class="headerlink" title="Models of Word2vec"></a>Models of Word2vec</h1><h2 id="Continuous-Bag-of-word-CBOW"><a href="#Continuous-Bag-of-word-CBOW" class="headerlink" title="Continuous Bag-of-word(CBOW)"></a>Continuous Bag-of-word(CBOW)</h2><p>CBOW takes the context as input and predict a center word from the surrounding context.</p>
+<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303220538726.png" alt="image-20220303220538726" style="zoom:33%;" /></p>
+<p>Consider a CBOW model, we define</p>
+<ul>
+<li><strong><em>Input vectors</em></strong> $\boldsymbol{x}^{(c)}$, which are both one-hot.</li>
+<li><strong><em>Output vector</em></strong> $\boldsymbol{y}^{(c)}$, also a one-hot vector, representing the center word.</li>
+<li><strong><em>Input word matrix</em></strong> $\boldsymbol{V} \in \mathbb{R}^{N \times |V|}$ and <strong><em>Output word matrix</em></strong> $\boldsymbol{U} \in \mathbb{R}^{|V|\times N}$. The $i$-th column of $\boldsymbol{V}$ is the $n$-dimensional embedded vector for word $w_i$ when it is an input to this model, denoted as $\boldsymbol{v}_i \in \mathbb{R}^{N}$. Similarly, the $j$-th row of $\boldsymbol{U}$ is an n-dimensional embedded vector for word $w_j$ when it is an output of the model, denoted as $\boldsymbol{u}_j \in \mathbb{R}^N$.</li>
+</ul>
+<p>Now we can see how the model works.</p>
+<ol>
+<li><p>Generate one-hot word vectors for the input context of size $m$: $(\boldsymbol{x}^{(c−m)} , \cdots , \boldsymbol{x}^{(c−1)} , \boldsymbol{x}^{(c+1)} , \cdots , \boldsymbol{x}^{(c+m)} \in \mathbb{R}^{|V|} )$.</p>
+</li>
+<li><p>Get embedded word vectors for the context </p>
+<script type="math/tex; mode=display">
+(\boldsymbol{v}_{c-m} = \boldsymbol{V}\boldsymbol{x}^{(c-m)}, \cdots, \boldsymbol{v}_{c+m} = \boldsymbol{V}\boldsymbol{x}^{(c+m)} \in \mathbb{R}^N)</script><p>Actually we get the columns of $\boldsymbol{V}$​.</p>
+</li>
+<li><p>Average these vectors to get <em>hidden layer</em> $\boldsymbol{h} \in \mathbb{R}^N$.</p>
+</li>
+<li><p>Generate a score vector </p>
+<script type="math/tex; mode=display">
+\boldsymbol{z} = \boldsymbol{Uh} ∈ \mathbb{R}^{|V|}</script><p>As the dot product of similar vectors is higher, it will push similar words close to each other in order to achieve a high score.</p>
+</li>
+<li><p>Turn the scores into probabilities </p>
+<script type="math/tex; mode=display">
+\hat {\boldsymbol{y}} = \mathrm{softmax}(\boldsymbol{z}) \in \mathbb{R}^{|V|}</script></li>
+<li><p>Calculate the <em>loss</em> using cross-entropy</p>
+<script type="math/tex; mode=display">
+J = - \sum_{j=1}^{|V|} y_j \log \hat y_j</script><p>Notice that the vector $\boldsymbol{y}$ is also one-hot, so we get</p>
+<script type="math/tex; mode=display">
+J = - \log\hat y_j = -\log \frac{\exp(\boldsymbol{u}_j^T\boldsymbol{h})}{\sum_{j'=1}^{|V|}\exp(\boldsymbol{u}_{j'}^T\boldsymbol{h})} = - \boldsymbol{u}_j^T\boldsymbol{h} + \log \sum_{j'=1}^{|V|}\exp(\boldsymbol{u}_{j'}^T\boldsymbol{h})</script></li>
+<li><p>Then we can use <em>stochastic gradient descent</em> to update all relevant word matrices $\boldsymbol{U}$ and $\boldsymbol{V}$. Here I give the result of some useful partial derivatives:</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial \boldsymbol{V}} = \\
+\frac{\partial J}{\partial \boldsymbol{U}} = \\</script></li>
+</ol>
+<h2 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h2><p>Another approach is to create a model such that given the center word, the model will be able to predict or generate the surrounding words. Here we call the word “jumped” the context. We call this type of model a Skip-Gram model.</p>
+<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303220520773.png" alt="image-20220303220520773" style="zoom:33%;" /></p>
+<p>Let’s discuss the Skip-Gram model above.</p>
+<ul>
+<li>The setup is largely the same but we essentially swap our $\boldsymbol{x}$ and $\boldsymbol{y}$. The only one input one-hot vector (center word) we will represent with an $\boldsymbol{x}$. And the output vectors as $\boldsymbol{y}^{(j)}$ .</li>
+<li>We define $\boldsymbol{V}$ and $\boldsymbol{U}$​ the same as in CBOW.</li>
+</ul>
+<p>Like CBOW, we breakdown the way this model works in these 6 steps:</p>
+<ol>
+<li><p>Generate our one hot input vector $\boldsymbol{x} \in \mathbb{R}^{|V|}$​ of the center word.</p>
+</li>
+<li><p>Get our embedded word vector for the center word $\boldsymbol{v}_c = \boldsymbol {Vx} \in \mathbb{R}^N$.</p>
+</li>
+<li><p>Generate a score vector $\boldsymbol{z} = \boldsymbol{Uv}_c$.</p>
+</li>
+<li><p>Turn the score vector into probabilities</p>
+<script type="math/tex; mode=display">
+\hat{\boldsymbol{y}} = \mathrm{softmax}(\boldsymbol{z})</script><p>Note that $(\hat{y}<em>{c-m}, \cdots, \hat{y}</em>{c-1}, \hat{y}<em>{c+1}, \cdots, \hat{y}</em>{c+m})$ are the probabilities of observing each context word.</p>
+</li>
+<li><p>Calculate the loss </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+J &= -\log P(w_{c-m}, \cdots, w_{c-1}, w_{c+1}, \cdots, w_{c+m} \mid w_c) \\
+  &= -\log \prod^{2m}_{j=0, j\neq m} P(w_{c-m+j}\mid w_c) \\ 
+  &= -\log \prod^{2m}_{j=0, j\neq m} \frac{\exp (\boldsymbol{u}_{c-m+j}^T \boldsymbol{v}_c)}{\sum_{k=1}^{|V|} \exp(\boldsymbol{u}_{k}^T \boldsymbol{v}_c)} \\
+  &= -\sum^{2m}_{j=0, j\neq m} \boldsymbol{u}_{c-m+j}^T \boldsymbol{v}_c + 2m\log \sum_{k=1}^{|V|}\exp(\boldsymbol{u}_{k}^T \boldsymbol{v}_c)
+\end{aligned}</script><p>Actually, it just calculate the cross-entropy between the probability vector $\hat{\boldsymbol{y}}$ and every one-hot vectors, and sum them.</p>
+</li>
+<li><p>With this objective function, we can compute the gradients with respect to the unknown parameters and at each iteration update them via Stochastic Gradient Descent.</p>
+<script type="math/tex; mode=display">
+\frac{\partial J}{\partial \boldsymbol{V}} = \\
+\frac{\partial J}{\partial \boldsymbol{U}} = \\</script></li>
+</ol>
+<h1 id="Training-tricks-of-Word2vec"><a href="#Training-tricks-of-Word2vec" class="headerlink" title="Training tricks of Word2vec"></a>Training tricks of Word2vec</h1><h2 id="Hierarchical-SoftMax"><a href="#Hierarchical-SoftMax" class="headerlink" title="Hierarchical SoftMax"></a>Hierarchical SoftMax</h2><p>Hierarchical softmax is an efficient way of computing softmax. The model uses a binary tree to represent all words in the vocabulary. The $V$ words must be leaf units of the tree. It can be proved that there are $V − 1$ inner units. For each leaf unit, there exists a unique path from the root to the unit; and this path is used to estimate the probability of the word represented by the leaf unit.</p>
+<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220303235508784.png" alt="image-20220303235508784" style="zoom:33%;" /></p>
+<p>In the hierarchical softmax model, there is no output vector representation for words. Instead, each of the $V − 1$ inner units has an output vector $\boldsymbol{v}_{n(w,j)}$. And the probability of a word being the output word is defined as</p>
+<script type="math/tex; mode=display">
+P(w = w_O) = \prod_{j=1}^{L(w)-1} \sigma([n(w, j+1) = \mathrm{ch}(n(w, j))] \cdot \boldsymbol{v}_{n(w,j)}^T \boldsymbol{h})</script><p>where $\mathrm{ch}(n)$ is the <em>left child</em> of unit $n$, $[x]$ is a special function defined as</p>
+<script type="math/tex; mode=display">
+[x] = \left\{
+\begin{aligned}
+&1\quad  &\mathrm{if} \ x \ \mathrm{is \ true;} \\
+&-1\quad &\mathrm{otherwise.}
+\end{aligned}
+\right.</script><p>At each inner unit, we need to assign the probabilities of going left and going right.</p>
+<script type="math/tex; mode=display">
+P(n, \mathrm{left}) = \sigma(\boldsymbol{v}_n^T\cdot \boldsymbol{h})\\
+P(n , \mathrm{right}) = 1 - P(n, \mathrm{left}) = \sigma( - \boldsymbol{v}_n^T\cdot \boldsymbol{h})</script><p>Then we can compute the probability of $w_2$ being the output word as</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P(w_2 = w_O)
+&= P(n(w_2, 1), \mathrm{left}) \cdot P(n(w_2, 2), \mathrm{left}) \cdot P(n(w_2, 3), \mathrm{right}) \\ 
+&= \sigma(\boldsymbol{v}_{n(w_2, 1)}^T\boldsymbol{h}) \cdot \sigma(\boldsymbol{v}_{n(w_2, 2)}^T\boldsymbol{h}) \cdot \sigma(-\boldsymbol{v}_{n(w_3, 1)}^T\boldsymbol{h}) 
+\end{aligned}</script><p>It’s not hard to vertify that</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{|V|}P(w_i = w_O) = 1</script><p>To train the model, our goal is still to minimize the negative log likelihood $− \log P(w = w_O)$. But instead of updating output vectors per word, we update the vectors of the nodes in the binary tree that are in the path from root to leaf node.</p>
+<h2 id="Negative-Sampling"><a href="#Negative-Sampling" class="headerlink" title="Negative Sampling"></a>Negative Sampling</h2><p>The idea of negative sampling is to only update a sample of them. </p>
+<p>Apparently the output word (<em>positive sample</em>) should be kept in our sample and gets updated, and we need to sample a few words as <em>negative samples</em> (hence “negative sampling”). A probabilistic distribution is needed for the sampling process, and it can be arbitrarily chosen. We call this distribution the noise distribution, and denote it as $P_n(w)$.</p>
+<p>In word2vec, instead of using a form of negative sampling that produces a well-defined posterior multinomial distribution, the authors argue that the following simplified training objective is capable of producing high-quality word embeddings:</p>
+<script type="math/tex; mode=display">
+J = - \log \sigma(\boldsymbol{v}_{w_O}^T\cdot \boldsymbol{h}) - \sum_{w_j \in \mathcal{W}_{neg}} \log \sigma(\boldsymbol{v}_{w_j}^T\cdot \boldsymbol{h})</script><p>where $w<em>O$ is the output word (i.e. the positive sample), $\mathcal{W}</em>{neg} = {w_j\mid j=1, \cdots, K}$ is the set of words that are asmpled based on $P_n(w)$, i.e. negative samples.</p>
+<h1 id="Other-works-about-word-embeddings"><a href="#Other-works-about-word-embeddings" class="headerlink" title="Other works about word embeddings"></a>Other works about word embeddings</h1><ul>
+<li><p>Latent Semantic Analysis (LSA)</p>
+</li>
+<li><p>Global Vectors (GloVe)</p>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><blockquote>
+<p>Mikolov, T., Chen, K., Corrado, G., and Dean, J. (2013). Efficient estimation of word representations in vector space.</p>
+<p>Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., and Dean, J. (2013). Distributed representations of words and phrases and their compositionality. </p>
+<p>Rong, X. (2014). word2vec parameter learning explained.</p>
+<p><a target="_blank" rel="noopener" href="http://web.stanford.edu/class/cs224n/index.html">Stanford CS 224N | Natural Language Processing with Deep Learning</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26306795">[NLP] 秒懂词向量Word2vec的本质 - 知乎 (zhihu.com)</a></p>
+</blockquote>
+
+  <div>
+</div>
+<!-- <footer>
+  &copy; 2022
+  <span class="author">
+    Liu Qi
+  </span>
+</footer> -->
+        </div>
+    </main>
+  </body>
+</html>

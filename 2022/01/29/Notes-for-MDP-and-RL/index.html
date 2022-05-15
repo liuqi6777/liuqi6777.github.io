@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  
+  <title>Notes for MDP and RL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  
+  <meta name="keywords" content=AI,Notes>
+  
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  
+  
+    <link rel="alternate" href="/atom.xml " title="Liu Qi&#39;s Homepage" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+  <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+	    tex2jax: {
+	        inlineMath: [['$','$']],
+	        processEscapes: true
+	    }
+	});
+</script>
+
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+  <body>
+    <main class="container-fluid">
+        <div class="flex-md-wrap">
+            <header class="header">
+    <img src="https://s2.loli.net/2022/01/24/YzZsVQcJno2aetE.png" class="profile">
+    <h1 class="profile-name">Qi Liu</h1>
+
+    <ul class="nav justify-content-center">
+        
+            <li class="nav-item">
+            <a href="/" class="nav-link active">Home</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/posts" class="nav-link active">Posts</a>
+             </li>
+        
+            <li class="nav-item">
+            <a href="/Projects" class="nav-link active">Projects</a>
+             </li>
+        
+            <li class="nav-item">
+            <a target="_blank" rel="noopener" href="https://github.com/liuqi6777" class="nav-link active">GitHub</a>
+             </li>
+        
+    </ul>
+
+    <div></div>
+
+</header>
+<div class="content">
+    <div class="header-title">
+    <h1">Notes for MDP and RL</h1>
+  </div>
+  <p>
+        <span>
+            <i class="bi bi-calendar-date"></i>2022-01-29
+        </span>
+        <span>
+            <i class="bi bi-folder"></i>
+            
+        </span>
+        <span><i class="bi bi-tags"></i>
+<!--             [object Object] -->
+        </span>
+  </p>
+<!--      -->
+  <div>
+  <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><ul>
+<li><strong>不确定搜索问题</strong>(nondeterministic search problems)<ul>
+<li>在现实生活中，很可能会出现一种情况，采取了确定的动作，但产生的结果是不确定的。传统搜索不能解决这一类问题，因此需要引入新方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="How"><a href="#How" class="headerlink" title="How"></a>How</h2><ul>
+<li>对于概率分布确定（即在一个状态和一个合法动作下，生成一个新的状态的概率已知）的问题，我们可以用<strong>马尔可夫决策过程</strong>(Markov decision processes or MDPs)来解决。</li>
+<li>而对于概率分布未知的问题，我们则使用一种称为<strong>强化学习</strong>(reinforcement learning)的方法。</li>
+</ul>
+<h1 id="Markov-Decision-Processes"><a href="#Markov-Decision-Processes" class="headerlink" title="Markov Decision Processes"></a>Markov Decision Processes</h1><p>一个马尔可夫决策过程由以下几个组成部分定义：</p>
+<ul>
+<li><strong>状态集</strong> $S$​。</li>
+<li><strong>动作集</strong> $A$。</li>
+<li>一个<strong>起始状态</strong>(start state)。</li>
+<li>可能存在一个或多个<strong>终止状态</strong>(terminal state)。</li>
+<li><strong>转移函数</strong>(transition function) $T(s, a, s’)$。<ul>
+<li>在特定状态 $s \in S$ 下并采取特定的动作 $a \in A$时，到达状态 $s’ \in S$ 的概率。</li>
+<li>转移函数 $T(s, a, s’)$ 实质上便是条件概率 $P(s’ \mid s, a)$。</li>
+</ul>
+</li>
+<li><strong>奖励函数</strong>(reward function) $R(s, a, s’)$。</li>
+<li>可能存在一个<strong>折扣系数</strong>(discount factor) $\gamma$。</li>
+</ul>
+<p><strong>时间步</strong>(timesteps)表示代理在不同 MDP 状态下的移动：</p>
+<script type="math/tex; mode=display">
+s_0 \xrightarrow{a_0} s_1 \xrightarrow{a_1} s_2 \xrightarrow{a_2} s_3 \xrightarrow{a_3} \cdots</script><p>由于代理的目标是在所有时间步中获得最大的可能的奖励，定义其<strong>效益</strong>(utility function)并使其最大化：</p>
+<script type="math/tex; mode=display">
+U([s_0, a_0, s_1, a_1, s_2, \dots]) = R(s_0, a_0, s_1) + R(s_1, a_1, s_2) + R(s_2, a_2, s_3) + \cdots</script><p>与传统搜索问题相似，MDP 也可以表示为搜索树。在这些搜索树中，不确定性用 <strong>q 状态</strong>(q-state)表示，也就是行动状态(action states)。</p>
+<ul>
+<li>q 状态用概率来表示环境会使一个 agent 陷入某一状态的不确定性，从状态 $s$ 采取行动 $a$ 之后的 q 状态表示为二元组 $(s, a)$，表示已经从一个状态采取了某一行动，但还没有得到一个后继状态。</li>
+<li>q 状态不会消耗时间步，它们只是一种概念，用来更好地对 MDP 算法进行表示。</li>
+</ul>
+<h2 id="Finite-Horizons-and-Discounting"><a href="#Finite-Horizons-and-Discounting" class="headerlink" title="Finite Horizons and Discounting"></a>Finite Horizons and Discounting</h2><p>对于某些 MDP，可能存在时间步无限循环的情况，此时效益不收敛。为了解决这个问题，我们可以采取两种方法。</p>
+<ul>
+<li><p>设定<strong>有限界</strong>(finite horizons)，通过设定一个数字来限制最大的时间步步数。</p>
+</li>
+<li><p>给定折扣系数 $\gamma$。认为奖励值随时间变化的指数衰减，定义<strong>折扣效益</strong></p>
+<script type="math/tex; mode=display">
+U([s_0, a_0, s_1, a_1, s_2, \dots]) = R(s_0, a_0, s_1) + \gamma R(s_1, a_1, s_2) + \gamma^2 R(s_2, a_2, s_3) + \cdots</script><p>当 $0 &lt; \gamma &lt; 1$ 时，上式有界:</p>
+<script type="math/tex; mode=display">
+U([s_0, a_0, s_1, a_1, s_2, \dots]) = \sum_{t=0}^\infty \gamma^tR(s_t, a_t, s_{a+1}) \leq \sum_{t=0}^\infty \gamma^tR_{max} = \frac{R_{max}}{1 - \gamma}</script></li>
+</ul>
+<h2 id="Markovianess"><a href="#Markovianess" class="headerlink" title="Markovianess"></a>Markovianess</h2><p>马尔可夫决策过程满足<strong>马尔可夫性</strong>(Markov property)，或是<strong>无记忆性</strong>(memoryless property)。在已知现在状态的情况下，过去和未来是条件独立的。也就是说，在时间 $t+1$ 时到达状态 $s’$ 的概率仅取决于在时间 $t$ 时的状态 $s$ 和采取的行动 $a$，与之前任何的状态和行动都无关。</p>
+<script type="math/tex; mode=display">
+P(S_{t+1} = s_{t+1}\mid S_t = s_t, A_t = a_t, S_{t-1}=s_{t-1}, \cdots, S_0 = s_0) = P(S_{t+1} = s_{t+1}\mid S_t = s_t, A_t = a_t)</script><h1 id="Solving-MDPs"><a href="#Solving-MDPs" class="headerlink" title="Solving MDPs"></a>Solving MDPs</h1><p>求解一个马尔可夫决策过程，意味着找到最优<strong>策略</strong>(policy) $\pi^* : S\to A$，即一个将每个状态 $s\in S$ 映射到一个动作 $a\in A$ 的单射函数。</p>
+<ul>
+<li>对于给定的策略 $\pi$ 和给定的一个状态 $s$，agent采取动作 $\pi(s)$，而不会考虑它采取的行动会如何影响未来。</li>
+<li>一个最优策略会让遵从该策略的agent带来最大期望奖励或效益。</li>
+</ul>
+<h2 id="The-Bellman-Equation"><a href="#The-Bellman-Equation" class="headerlink" title="The Bellman Equation"></a>The Bellman Equation</h2><ul>
+<li>状态 $s$ 的最优值 $V^*(s)$<ul>
+<li>$s$ 的最优值是一个从 $s$ 出发的agent在其余下寿命中采取最优行动能获得的效益的期望值。</li>
+</ul>
+</li>
+<li>一个 q 状态(s,a)的最优值(q-value) $Q^*(s, a)$<ul>
+<li>$(s,a)$ 的最优值是一个agent从状态 $s$ 采取行动 $a$ 之后获得的效益的期望值，并且该agent从此以后采取的都是最优行动。</li>
+</ul>
+</li>
+</ul>
+<p>Bellman方程定义如下:</p>
+<script type="math/tex; mode=display">
+V^*(s) = \max_a Q^*(s, a) = \max_a \sum_{s'} T(s, a, s')[R(s, a, s') + \gamma V^*(s')]</script><ul>
+<li>一个状态的最优值，就是从该状态出发的所有可能的动作所能得到的最大期望效益。</li>
+</ul>
+<h2 id="Value-Iteration"><a href="#Value-Iteration" class="headerlink" title="Value Iteration"></a>Value Iteration</h2><ul>
+<li><strong>限时值</strong>(time-limited values)<ul>
+<li>限制时间步数为 $k$ 的一个状态 $s$ 的限时值表示为 $V_k(s)$，代表在已知当前MDP会在 $k$ 时间步后终止的情况下，从 $s$ 出发能得到的最大期望效益。</li>
+</ul>
+</li>
+</ul>
+<p><strong>值迭代</strong>(Value iteration)是一种<strong>动态规划算法</strong>(dynamic programming algorithm)，通过一个迭代加长的时间限制来迭代计算每个状态的限时值，直到收敛。</p>
+<p>算法描述如下：</p>
+<ol>
+<li><p>$\forall s \in S, V_0(s) = 0$</p>
+</li>
+<li><p>重复以下更新操作，直至收敛（或达到最大迭代轮数）:</p>
+<script type="math/tex; mode=display">
+\forall s \in S, V_{k+1}(s) \leftarrow \max_a\sum_{s'}T(s, a, s')[R(s, a, s') + \gamma V_k(s')]</script></li>
+</ol>
+<h2 id="Policy-extraction"><a href="#Policy-extraction" class="headerlink" title="Policy extraction"></a>Policy extraction</h2><p><strong>策略提取</strong>(Policy extraction)用于在给定一些状态值函数的情况下决定一个策略。如果状态值是最优的，这个策略也就是最优的。这一方法在进行值迭代之后使用，用于从最优状态值计算得到最优状态；或是在值迭代中作为一个子程序，用于计算当前估计状态值的最佳策略。</p>
+<script type="math/tex; mode=display">
+\forall s \in S, \pi^*(s) =\mathop{\mathrm{argmax}}_a \ Q^*(s, a) = \mathop{\mathrm{argmax}}_a\sum_{s'}T(s, a, s')[R(s, a, s') + \gamma V_k(s')]</script><h2 id="Policy-iteration"><a href="#Policy-iteration" class="headerlink" title="Policy iteration"></a>Policy iteration</h2><p><strong>策略迭代</strong>(Policy iteration)是一种将策略评估和策略提取集于一身的技术，用于迭代收敛从而得到一个最优策略。其表现优于值迭代，这是由于策略往往比状态值收敛得快得多。</p>
+<ol>
+<li><p>定义一个初始策略。</p>
+<ul>
+<li>初始策略越接近最优策略，策略迭代收敛得也就越快。</li>
+</ul>
+</li>
+<li><p>重复以下更新操作，直至收敛（或达到最大迭代轮数）：</p>
+<ul>
+<li><p>用<strong>策略评估</strong>对当前策略进行评估。对于一个策略 $\pi$，策略评估意味着计算所有状态 $s$ 的 $V^\pi (s)$，表示按照策略 $\pi$ 从状态 $s$ 出发的期望效益：</p>
+<script type="math/tex; mode=display">
+V^\pi(s) = \sum_{s'}T(s, a, s')[R(s, a, s') + \gamma V^\pi(s')]</script></li>
+<li><p>由于我们正在对每个状态的一个行动进行修正，由以上规则生成的 $|S|$​ 个方程，解方程组得到每个 $V^{\pi_i}(s)$​。</p>
+</li>
+<li><p>评估完当前策略后，用<strong>策略改进</strong>(policy improvement)来生成更好的策略。策略改进通过对由策略评估生成的状态的值进行策略提取，生成以下改进提升后的策略：</p>
+<script type="math/tex; mode=display">
+\pi_{i+1}(s) = \mathop{\mathrm{argmax}}_a\sum_{s'}T(s, a, s')[R(s, a, s') + \gamma V^{\pi_i}(s')]</script></li>
+<li><p>当 $\pi_{i+1} = \pi_i$ 时，算法收敛。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="Reinforcement-Learning"><a href="#Reinforcement-Learning" class="headerlink" title="Reinforcement Learning"></a>Reinforcement Learning</h1><p>求解 MDP 是<strong>离线规划</strong>(offline planning)的一个例子，agent 对转移函数和奖励函数都有充分的了解，这些信息是它们在没有实际采取任何行动的情况下，预先计算出由 MDP 表示的世界中的最佳行动所需要的所有信息。</p>
+<p>在<strong>强化学习</strong>(Reinforcement Learning)中，我们关注<strong>在线规划</strong>。agent 不知道奖励或过渡(仍然表示为 MDP)，必须尝试<strong>探索</strong>(exploration)，执行行动，并以其到达的后续状态和获得的相应奖励的形式接受<strong>反馈</strong>(feedback)。agent 使用这个反馈来估计一个最优的策略，然后再使用这个估计的策略进行利用，或奖励最大化。</p>
+<p><img src="C:\Users\qianx\AppData\Roaming\Typora\typora-user-images\image-20220226133802904.png" alt="image-20220226133802904" style="zoom:50%;" /></p>
+<ul>
+<li>在每个时间步中，agent 从状态 $s$ 开始，然后采取行动 $a$，并在后续状态 $s’$ 结束，获得一定的奖励 $r$。每个四元组 $(s, a,s’,r)$ 被称为一个<strong>样本</strong>(sample)。</li>
+<li>通常情况下，一个代理会连续地采取行动并收集样本，直到到达一个终止状态。这样收集到的样本称为一个<strong>回合</strong>(episode)。</li>
+<li>agent 通常会在探索过程中经历许多回合，以便收集学习所需的足够数据。</li>
+</ul>
+<h2 id="Model-based-Learnig"><a href="#Model-based-Learnig" class="headerlink" title="Model-based Learnig"></a>Model-based Learnig</h2><p>在基于模型的学习中，agent 通过记录在进入每个 q 状态 $(s, a)$ 后到达每个状态 $s’$ 的次数来生成转移函数的近似 $\hat T(s, a, s’)$，再通过规范化使其和为 1 以便表示为概率。</p>
+<p>根据大数定律，当代理经历更多回合而收集到越来越多的样本时，$\hat T$ 和 $\hat R$ 的模型将会改进，当我们发现新的 $(s, a,s’)$ 元组时，向 $T$ 和 $R$ 靠拢。</p>
+<h2 id="Model-free-Learning"><a href="#Model-free-Learning" class="headerlink" title="Model-free Learning"></a>Model-free Learning</h2><p><strong>直接评价</strong>(Direct Evaluation)和<strong>时间差学习</strong>(Temporal Difference Learning)属于<strong>被动强化学习</strong>(Passive Reinforcement Learning)。在被动强化学习中，agent 被赋予一个策略，当它经历事件时，学习该策略下的状态值，这正是当 $T$ 和 $R$ 已知时，策略评估对 MDP 所做的。</p>
+<p><strong>Q-learning</strong> 属于第二类无模型学习算法，称为<strong>主动强化学习</strong>(Active Reinforcement Learning)，学习主体可以在学习过程中利用收到的反馈迭代更新策略，直到经过充分探索最终确定最优策略。</p>
+<h3 id="Direct-Evaluation"><a href="#Direct-Evaluation" class="headerlink" title="Direct Evaluation"></a>Direct Evaluation</h3><p>使用当前策略经历多次 episode。当代理收集 episode 时，同时也能得到从每个 state 出发得到的 reward，以及访问每个 state 的次数。对其求出平均值，则可以算出对每个状态的估计值。</p>
+<ul>
+<li>优点：简单、直观</li>
+<li>缺点：需要计算大量的 episode，才可能使结果收敛到接近真实值。</li>
+</ul>
+<h3 id="Temporal-Difference-Learning"><a href="#Temporal-Difference-Learning" class="headerlink" title="Temporal Difference Learning"></a>Temporal Difference Learning</h3><p>时差学习(TD learning)使用的是从每一个 episode 中学习的理念，而不是像直接评估那样简单地记录总回报和访问状态的次数。在 policy evaluation 中，我们使用固定政策生成的方程组和贝尔曼方程来确定该政策下的状态值（或使用迭代更新，如值迭代）。 </p>
+<script type="math/tex; mode=display">
+V^\pi(s) = \sum_{s'} T(s, \pi(s), s') [R(s, \pi(s), s') + \gamma V^\pi(s')]</script><p>(待续)</p>
+<h3 id="Q-Learning"><a href="#Q-Learning" class="headerlink" title="Q-Learning"></a>Q-Learning</h3><p>Q-learning 提出直接学习状态的 q-value，而不需要知道任何值、转换函数或奖励函数。因此，Q-learning 完全没有模型。</p>
+<p>Q-learning 使用以下更新规则来执行所谓的 Q 值迭代：</p>
+<script type="math/tex; mode=display">
+Q_{k+1} (s, a) \leftarrow \sum_{s'} T(s, a, s') [R(s, a, s') + \gamma \max_{a'} Q_k (s', a')]</script><p> 根据我们的新更新规则，Q-learning的推导方法基本上与TD-learning相同，即获取Q值样本：</p>
+<script type="math/tex; mode=display">
+sample = R(s, a, s') + \gamma \max_{a'}Q(s', a') \\
+Q(s, a) \leftarrow (1 - \alpha) Q(s, a) + \alpha \cdot sample</script><p>只要我们花足够的时间进行探索，并以适当的速度降低学习率 $\alpha$，Q-learning 就可以学习每个 q 状态的最佳 q-value。</p>
+<p>这就是为什么 Q-learning 如此具有革命性——TD-learning 和直接评估通过在通过其他技术确定政策最优性之前遵循政策来学习政策下的状态值，而 Q-learning 甚至可以通过采取次优或随机行动来直接学习最优政策。这被称为非政策学习。 </p>
+<h3 id="Approximate-Q-Learning"><a href="#Approximate-Q-Learning" class="headerlink" title="Approximate Q-Learning"></a>Approximate Q-Learning</h3><p>通过特征向量，将状态和 q 状态的值视为线性值函数：</p>
+<script type="math/tex; mode=display">
+V(s) = w_1\cdot f_1(s) + w_2\cdot f_2(s) + \cdots + w_n \cdot f_n(s) \\
+Q(s, a) = w_1\cdot f_1(s, a) + w_2\cdot f_2(s, a) + \cdots + w_n \cdot f_n(s, a)</script><p>定义</p>
+<script type="math/tex; mode=display">
+difference = [R(s, a, s') + \gamma \max_{a'} Q(s', a')] - Q(s, a)</script><p>并使用如下规则进行更新：</p>
+<script type="math/tex; mode=display">
+ w_i ← w_i + α · difference · f_i(s,a)</script><p>与存储每个状态的Q值不同，通过近似Q学习，我们只需要存储单个权重向量，并可以根据需要计算Q值。因此，这不仅为我们提供了一个更通用的Q-学习版本，而且也为我们提供了一个更高效的记忆版本。</p>
+<p>也可以将更新公式以另一种方式表达：</p>
+<script type="math/tex; mode=display">
+Q(s, a) \leftarrow Q(s, a) + \alpha \cdot difference</script><p>该公式计算采样估计值和当前模型 $Q(s，a)$ 之间的差异，并将模型向估计方向移动，移动的幅度与差异的幅度成正比。</p>
+<h2 id="Exploration-and-Exploitation"><a href="#Exploration-and-Exploitation" class="headerlink" title="Exploration and Exploitation"></a>Exploration and Exploitation</h2><h3 id="varepsilon-​-Greedy-Policies"><a href="#varepsilon-​-Greedy-Policies" class="headerlink" title="$\varepsilon$​-Greedy Policies"></a>$\varepsilon$​-Greedy Policies</h3><ul>
+<li>定义 $\varepsilon, 0 \leq \varepsilon \leq 1$</li>
+<li>以概率 $\varepsilon$ 进行探索(Exploration)，即随机行动。</li>
+<li>以概率 $1 - \varepsilon$ 进行开发(Exploitation)，即按照当前策略行动。</li>
+</ul>
+<h3 id="Exploration-Functions"><a href="#Exploration-Functions" class="headerlink" title="Exploration Functions"></a>Exploration Functions</h3><p>使用可修改的 q-value 迭代更新来优先访问访问较少访问的状态。</p>
+<script type="math/tex; mode=display">
+Q(s, a) \leftarrow (1 - \alpha) Q(s, a) + \alpha \cdot [R(s, a, s') + \gamma \max_{a'} f(s', a')]</script><p>$f$ 表示探索函数，常用</p>
+<script type="math/tex; mode=display">
+f(s, a) = Q(s, a) + \frac{k}{N(s, a)}</script><p>其中 $k$ 是某个预定值，$N(s，a)$ 表示访问 q 状态 $(s，a)$ 的次数。</p>
+<p>处于 $s$ 状态的代理总是从每个状态中选择具有最高 $f(s，a)$ 的动作，因此永远不必在探索和开发之间做出概率决策。</p>
+<h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>强化学习有一个潜在的 MDP，目标是通过推导最优策略来解决这个 MDP。</p>
+<ul>
+<li><strong>基于模型的学习</strong>——运行计算来估计转移函数 $T$ 和奖励函数 $R$ 的值，并使用 MDP 解决方法，如对这些估计值进行值或策略迭代。</li>
+<li><strong>无模型学习</strong>——避免估计 $T$ 和 $R$，而是使用其他方法直接估计状态的值或 Q 值。 <ul>
+<li><strong>直接评估</strong>——遵循政策 $π$，简单地计算从每个 state 获得的总回报和访问每个 state 的总次数。如果采集足够多的样本，这将收敛到 $π$​ 下的状态真值，但是速度很慢，而且浪费了关于状态间跃迁的信息。</li>
+<li><strong>时间差分学习</strong>——遵循策略 $π$，并使用采样值的指数移动平均值，直到收敛到 $π$​ 下的状态真值。TD学习和直接评估是政策学习的例子，它们在决定某项政策是否次优并需要更新之前，先了解该政策的价值。</li>
+<li><strong>Q-学习</strong>——通过 Q 值迭代更新直接通过试错学习最优策略。这是非策略学习的一个例子，即使在采取次优行动时，也会学习最优策略。 </li>
+<li><strong>近似 Q-学习</strong>——与 Q-学习做相同的事情，但使用基于特征的状态表示来概括学习。 </li>
+</ul>
+</li>
+</ul>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://inst.eecs.berkeley.edu/~cs188/fa18/index.html">CS 188: Introduction to Artificial Intelligence, Fall 2018 (berkeley.edu)</a></p>
+</blockquote>
+
+  <div>
+</div>
+<!-- <footer>
+  &copy; 2022
+  <span class="author">
+    Liu Qi
+  </span>
+</footer> -->
+        </div>
+    </main>
+  </body>
+</html>
