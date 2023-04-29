@@ -9,8 +9,8 @@
 locale                   : "en-US"
 title                    : "Qi Liu"
 title_separator          : "-"
-name                     : &name "Qi Liu"
-description              : &description "enjoy life and research"
+name                     : "Qi Liu"
+description              : "enjoy life and research"
 url                      : https://liuqi6777.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "liuqi6777/liuqi6777.github.io"
@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : QiLiu00247164
 facebook:
   username               :
   app_id                 :
@@ -83,7 +83,7 @@ author:
   name             : "Qi Liu"
   avatar           : "my_profile.jpg"
   bio              : "Undergraduate student in Gaoling School of Artificial Intelligence, Renmin University of China"
-  location         : "Peking, China"
+  location         : "Beijing, China"
   employer         :
   pubmed           :  # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    :  # "http://yourfullgooglescholarurl.com"
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : # "replacethistwitterhandle"
+  twitter          : "QiLiu00247164"
   vine             :
   weibo            :
   xing             :
