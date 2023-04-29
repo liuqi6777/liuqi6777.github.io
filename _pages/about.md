@@ -10,7 +10,7 @@ redirect_from:
 
 # About
 
-I am an undergraduate student of [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn/english/index.htm), [Renmin University of China](https://www.ruc.edu.cn/en), majoring in artificial intelligence. Currently, I am participating in an internship with the Assistant Professor [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
+I am an undergraduate student of [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn/english/index.htm), [Renmin University of China](https://www.ruc.edu.cn/en), majoring in artificial intelligence. Currently, I am participating in an internship with Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
 
 My research interests include natural language processing and information retrieval.
 
