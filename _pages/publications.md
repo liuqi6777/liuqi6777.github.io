@@ -15,6 +15,7 @@ author_profile: true
   {% include archive-single.html %}
 {% endfor %} -->
 
-<!-- * Paper 1 \
-**Qi Liu** \
-url -->
+* Understanding the Multi-vector Dense Retrieval Models \
+**Qi Liu**, Jiaxin Mao \
+CIKM 2023
+<!-- url -->
