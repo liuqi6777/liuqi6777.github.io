@@ -17,5 +17,5 @@ author_profile: true
 
 * Understanding the Multi-vector Dense Retrieval Models \
 **Qi Liu**, Jiaxin Mao \
-CIKM 2023
+CIKM 2023 [Paper](https://dl.acm.org/doi/10.1145/3583780.3615282)
 <!-- url -->
