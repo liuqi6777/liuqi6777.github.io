@@ -10,13 +10,13 @@ redirect_from:
 
 # About
 
-My name is Qi Liu. I am now a fourth-year undergraduate student of [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), majoring in artificial intelligence. Currently, I am working with Assoc. Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
+My name is Qi Liu. I am now a senior-year undergraduate student of [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), majoring in artificial intelligence. I am going to enroll in my PhD program in Renmin University of China next autumn, under the guidance of Assoc. Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
 
-My research interests include information retrieval and nature language processing, specifically in:
+My research interests include information retrieval and nature language processing, with a specific focus on the following areas::
 
-- dense retrieval models,
-- large language models for information retrieval,
-- retrieval augmented language models.
+- Dense Retrieval Models,
+- Large Language Models for Retrieval and Ranking,
+- and Retrieval Augmented Generation.
 
 # Education
 
@@ -29,7 +29,7 @@ Introduction to Programming Language In C 2023 Fall  -->
 # Experiences
 
 - **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
-- **Nov. 2023 - present.** Research Internship, Jina AI, Beijing, China.
+- **Nov. 2023 - present.** Internship, Jina AI, Beijing, China.
 
 <!-- This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
 
