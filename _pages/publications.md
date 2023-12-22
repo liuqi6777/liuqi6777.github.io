@@ -16,12 +16,14 @@ author_profile: true
 {% endfor %} -->
 
 * An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models \
-**Qi Liu**\*, Gang Guo\*, Jiaxin Mao, Zhicheng Dou, Ji-rong Wen, Hao Jiang, Xinyu Zhang, Zhao Cao \
-*TOIS* 2023 (Just Accepted)
+**Qi Liu**\*, Gang Guo\*, Jiaxin Mao, Zhicheng Dou, Ji-Rong Wen, Hao Jiang, Xinyu Zhang, Zhao Cao \
+ACM Transactions on Information Systems. (*TOIS*) \
+Just Accepted
 
 * Understanding the Multi-vector Dense Retrieval Models \
 **Qi Liu**, Jiaxin Mao \
-*CIKM* 2023 [Paper](https://dl.acm.org/doi/10.1145/3583780.3615282)
+The 32nd ACM International Conference on Information and Knowledge. (*CIKM* 2023) \
+[Paper](https://dl.acm.org/doi/10.1145/3583780.3615282)
 <!-- url -->
 
 
