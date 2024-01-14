@@ -9,3 +9,6 @@ tags:
 ---
 
 This post will show up by default. To disable scheduling of future posts, edit `config.yml` and set `future: false`. 
+
+
+<img src="..\..\images\500x300.png" alt="" style="display:block; margin:auto;">

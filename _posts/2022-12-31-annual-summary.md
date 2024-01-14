@@ -2,9 +2,11 @@
 title: '2022 Annual Summary'
 date: 2022-12-31
 permalink: /posts/2022-annual-summary/
+related:
+  false
 tags:
   - annual summary
-excerpt: 2022 年度总结
+excerpt: “总有奋不顾身的相信，总要坚韧恒久的勇气”
 ---
 
 2022 年在感染中仓促结束了。

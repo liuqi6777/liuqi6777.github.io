@@ -2,9 +2,11 @@
 title: '2023 Annual Summary'
 date: 2023-12-31
 permalink: /posts/2023-annual-summary/
+related:
+  false
 tags:
   - annual summary
-excerpt: 2023 年度总结
+excerpt: 沉淀、收获、充满希望的一年。
 ---
 
 2023年，于我来说是沉淀、收获、充满希望的一年。
