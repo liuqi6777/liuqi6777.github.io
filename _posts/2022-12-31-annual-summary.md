@@ -4,6 +4,7 @@ date: 2022-12-31
 permalink: /posts/2022-annual-summary/
 tags:
   - annual summary
+excerpt: 2022 年度总结
 ---
 
 2022 年在感染中仓促结束了。
