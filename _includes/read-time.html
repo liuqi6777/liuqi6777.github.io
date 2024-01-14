@@ -1,7 +1,17 @@
 {% if post.read_time %}
-  {% assign words = post.content | strip_html | number_of_words %}
+  {% assign non_english = post.content | match: "^[a-zA-Z0-9!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\s🙂-🙁]*$" %}
+  {% if non_english %}
+    {% assign words = post.content | strip_html | strip_newlines | remove: " " | size %}
+  {% else %}
+    {% assign words = post.content | strip_html | number_of_words %}
+  {% endif %}
 {% elsif page.read_time %}
-  {% assign words = page.content | strip_html | number_of_words %}
+  {% assign non_english = page.content | match: "^[a-zA-Z0-9!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~\s🙂-🙁]*$" %}
+  {% if non_english %}
+    {% assign words = page.content | strip_html | strip_newlines | remove: " " | size %}
+  {% else %}
+	{% assign words = page.content | strip_html | number_of_words %}
+  {% endif %}
 {% endif %}
 
 {% if site.words_per_minute %}
