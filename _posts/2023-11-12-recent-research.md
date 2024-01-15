@@ -1,7 +1,7 @@
 ---
 title: 'Talking about Recent Research Experience'
 date: 2023-11-12
-permalink: /posts/recent-research-experience/
+permalink: /posts/recent-research-experience-02/
 related:
   false
 tags:

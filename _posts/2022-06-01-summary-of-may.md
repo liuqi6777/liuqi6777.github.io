@@ -1,7 +1,7 @@
 ---
 title: '总结一下封校的五月'
 date: 2022-06-01
-permalink: /posts/summary-of-may/
+permalink: /posts/2022-05/
 related:
   false
 tags:

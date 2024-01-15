@@ -1,7 +1,7 @@
 ---
 title: '2022 Annual Summary'
 date: 2022-12-31
-permalink: /posts/2022-annual-summary/
+permalink: /posts/2022/
 related:
   false
 tags:

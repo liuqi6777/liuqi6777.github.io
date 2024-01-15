@@ -1,7 +1,7 @@
 ---
 title: 'First Experience in Research'
 date: 2023-02-22
-permalink: /posts/research-experience/
+permalink: /posts/recent-research-experience-01/
 related:
   false
 tags:

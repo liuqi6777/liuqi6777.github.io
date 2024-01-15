@@ -1,7 +1,7 @@
 ---
 title: '2023 Annual Summary'
 date: 2023-12-31
-permalink: /posts/2023-annual-summary/
+permalink: /posts/2023/
 related:
   false
 tags:
