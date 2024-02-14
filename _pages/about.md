@@ -31,16 +31,3 @@ My research interests include information retrieval and nature language processi
 
 - **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
 - **Nov. 2023 - Present.** Internship, Jina AI, Beijing, China.
-
-<!-- 
-# 📚 Services
-
-**Teaching Assistant**
-
-- **2024 Spring**, Python Programming for Artificial Intelligence.
-- **2023 Fall**, Introduction to Programming Language In C. 
--->
-
-<!-- 
-**Reviewer**
--->
