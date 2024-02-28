@@ -15,8 +15,8 @@ author_profile: true
   {% include archive-single.html %}
 {% endfor %} -->
 
-* Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings
-Isabelle Mohr, Markus Krimmel, Saba Sturua, Mohammad Kalim Akram, Andreas Koukounas, Michael Günther, Georgios Mastrapas, Vinit Ravishankar, Joan Fontanals Martínez, Feng Wang, **Qi Liu**, Ziniu Yu, Jie Fu, Saahil Ognawala, Susana Guzman, Bo Wang, Maximilian Werk, Nan Wang, Han Xiao
+* Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings \
+Isabelle Mohr, Markus Krimmel, Saba Sturua, Mohammad Kalim Akram, Andreas Koukounas, Michael Günther, Georgios Mastrapas, Vinit Ravishankar, Joan Fontanals Martínez, Feng Wang, **Qi Liu**, Ziniu Yu, Jie Fu, Saahil Ognawala, Susana Guzman, Bo Wang, Maximilian Werk, Nan Wang, Han Xiao \
 [Preprint](https://arxiv.org/abs/2402.17016), 2024.02
 
 * An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models \
