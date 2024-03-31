@@ -9,9 +9,9 @@ redirect_from:
 
 # About
 
-My name is Qi Liu. I am now a senior-year undergraduate student of [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), majoring in artificial intelligence. I am going to enroll in my PhD program in Renmin University of China this autumn, advised by Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
+My name is Qi Liu. I am now a senior-year undergraduate student at [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), majoring in artificial intelligence. I am going to enroll in my PhD program in Renmin University of China this autumn, advised by Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/).
 
-My research interests include information retrieval and nature language processing, with a specific focus on the following areas:
+My research interests include information retrieval and natural language processing, with a specific focus on the following areas:
 
 - dense retrieval models,
 - large language models for retrieval and ranking,
