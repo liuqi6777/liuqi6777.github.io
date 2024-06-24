@@ -16,8 +16,12 @@ author_profile: true
 {% endfor %} -->
 
 
+* Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models \
+**Qi Liu**, Bo Wang, Nan Wang, Jiaxin Mao \
+[Preprint](https://arxiv.org/abs/2406.14848), 2024.06
+
 * TourRank: Utilizing Large Language Models for Documents Ranking with a Tournament-Inspired Strategy \
-Yiqun Chen, **Qi Liu**, Yi Zhang, Weiwei Sun, Daiting Shi, Jiaxin Mao, Dawei Yin
+Yiqun Chen, **Qi Liu**, Yi Zhang, Weiwei Sun, Daiting Shi, Jiaxin Mao, Dawei Yin \
 [Preprint](https://arxiv.org/abs/2406.11678), 2024.06
 
 * Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings \
