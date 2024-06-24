@@ -81,8 +81,8 @@ analytics:
 # Site Author
 author:
   name             : "Qi Liu (刘琦)"
-  avatar           : "my_profile.jpg"
-  bio              : "Undergraduate student at Renmin University of China"
+  avatar           : "my_profile_1.jpg"
+  bio              : ""  # TODO
   location         : "Beijing, China"
   employer         :
   pubmed           :  # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
