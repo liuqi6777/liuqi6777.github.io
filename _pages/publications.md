@@ -15,6 +15,9 @@ author_profile: true
   {% include archive-single.html %}
 {% endfor %} -->
 
+* Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval \
+Hanqi Zhang, Chong Chen, Lang Mei, **Qi Liu** and Jiaxin Mao \
+The 33nd ACM International Conference on Information and Knowledge. (*CIKM* 2024)
 
 * Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models \
 **Qi Liu**, Bo Wang, Nan Wang, Jiaxin Mao \
