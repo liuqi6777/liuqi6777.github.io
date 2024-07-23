@@ -29,7 +29,7 @@ Yiqun Chen, ***Qi Liu***, Yi Zhang, Weiwei Sun, Daiting Shi, Jiaxin Mao, Dawei Y
 [Preprint](https://arxiv.org/abs/2406.11678), 2024.06
 
 * **Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings** \
-Isabelle Mohr, Markus Krimmel, Saba Sturua, Mohammad Kalim Akram, Andreas Koukounas, Michael Günther, Georgios Mastrapas, Vinit Ravishankar, Joan Fontanals Martínez, Feng Wang, ***Qi Liu***, Ziniu Yu, Jie Fu, Saahil Ognawala, Susana Guzman, Bo Wang, Maximilian Werk, Nan Wang, Han Xiao \
+Isabelle Mohr, Markus Krimmel, ..., ***Qi Liu***, ..., Bo Wang, Maximilian Werk, Nan Wang, Han Xiao \
 [Preprint](https://arxiv.org/abs/2402.17016), 2024.02
 
 * **An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models** \
