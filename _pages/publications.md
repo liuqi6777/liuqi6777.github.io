@@ -17,7 +17,8 @@ author_profile: true
 
 * **Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval** \
 Hanqi Zhang, Chong Chen, Lang Mei, ***Qi Liu*** and Jiaxin Mao \
-The 33nd ACM International Conference on Information and Knowledge. (*CIKM* 2024)
+Proceedings of the 33nd ACM International Conference on Information and Knowledge Management. (*CIKM* 2024) \
+[Paper](/)
 
 * **Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models** \
 ***Qi Liu***, Bo Wang, Nan Wang, Jiaxin Mao \
@@ -38,7 +39,7 @@ ACM Transactions on Information Systems. (*TOIS*) \
 
 * **Understanding the Multi-vector Dense Retrieval Models** \
 ***Qi Liu***, Jiaxin Mao \
-The 32nd ACM International Conference on Information and Knowledge. (*CIKM* 2023) \
+Proceedings of the 32nd ACM International Conference on Information and Knowledge Management. (*CIKM* 2023) \
 [Paper](https://dl.acm.org/doi/10.1145/3583780.3615282)
 <!-- url -->
 
