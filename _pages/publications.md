@@ -17,12 +17,12 @@ author_profile: true
 
 * **Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models** \
 ***Qi Liu***, Bo Wang, Nan Wang, Jiaxin Mao \
-Proceedings of the ACM Web Conference 2025. (*WWW* 2025)
+Proceedings of the ACM Web Conference 2025. (*WWW* 2025) \
 [Paper](https://arxiv.org/abs/2406.14848)
 
 * **TourRank: Utilizing Large Language Models for Documents Ranking with a Tournament-Inspired Strategy** \
 Yiqun Chen, ***Qi Liu***, Yi Zhang, Weiwei Sun, Daiting Shi, Jiaxin Mao, Dawei Yin \
-Proceedings of the ACM Web Conference 2025. (*WWW* 2025)
+Proceedings of the ACM Web Conference 2025. (*WWW* 2025) \
 [Paper](https://arxiv.org/abs/2406.11678)
 
 * **Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval** \
