@@ -15,18 +15,20 @@ author_profile: true
   {% include archive-single.html %}
 {% endfor %} -->
 
-* **Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval** \
-Hanqi Zhang, Chong Chen, Lang Mei, ***Qi Liu*** and Jiaxin Mao \
-Proceedings of the 33nd ACM International Conference on Information and Knowledge Management. (*CIKM* 2024) \
-[Paper](/)
-
 * **Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models** \
 ***Qi Liu***, Bo Wang, Nan Wang, Jiaxin Mao \
-[Preprint](https://arxiv.org/abs/2406.14848), 2024.06
+Proceedings of the ACM Web Conference 2025. (*WWW* 2025)
+[Paper](https://arxiv.org/abs/2406.14848)
 
 * **TourRank: Utilizing Large Language Models for Documents Ranking with a Tournament-Inspired Strategy** \
 Yiqun Chen, ***Qi Liu***, Yi Zhang, Weiwei Sun, Daiting Shi, Jiaxin Mao, Dawei Yin \
-[Preprint](https://arxiv.org/abs/2406.11678), 2024.06
+Proceedings of the ACM Web Conference 2025. (*WWW* 2025)
+[Paper](https://arxiv.org/abs/2406.11678)
+
+* **Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval** \
+Hanqi Zhang, Chong Chen, Lang Mei, ***Qi Liu*** and Jiaxin Mao \
+Proceedings of the 33nd ACM International Conference on Information and Knowledge Management. (*CIKM* 2024) \
+[Paper](https://arxiv.org/abs/2408.08066)
 
 * **Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings** \
 Isabelle Mohr, Markus Krimmel, ..., ***Qi Liu***, ..., Bo Wang, Maximilian Werk, Nan Wang, Han Xiao \
