@@ -15,6 +15,14 @@ author_profile: true
   {% include archive-single.html %}
 {% endfor %} -->
 
+* **How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective** \
+***Qi Liu***, Jiaxin Mao, Ji-Rong Wen \
+[Preprint](https://arxiv.org/abs/2504.07898), 2025.04
+
+* **LLM4Ranking: An Easy-to-use Framework of Utilizing Large Language Models for Document Reranking** \
+***Qi Liu***, Haozhe Duan, Yiqun Chen, Quanfeng Lu, Weiwei Sun, Jiaxin Mao \
+[Preprint](https://arxiv.org/abs/2504.07439), 2025.04
+
 * **Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models** \
 ***Qi Liu***, Bo Wang, Nan Wang, Jiaxin Mao \
 Proceedings of the ACM Web Conference 2025. (*WWW* 2025) \
