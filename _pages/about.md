@@ -29,5 +29,6 @@ My name is Qi Liu. I am a PhD student at [Gaoling School of Artificial Intellige
 
 # Experiences
 
-- **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
+- **May. 2025 - Present.** Research Internship, Tongyi Lab, Alibaba, Beijing, China.
 - **Nov. 2023 - June. 2024.** Internship, Jina AI, Beijing, China.
+- **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
