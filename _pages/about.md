@@ -11,7 +11,7 @@ redirect_from:
 
 <!-- I am now a senior-year undergraduate student at [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), majoring in artificial intelligence. I am going to enroll in my PhD program in Renmin University of China this autumn, advised by Prof. [Jiaxin Mao](https://sites.google.com/site/maojiaxin/). -->
 
-My name is Qi Liu. I am a first-year PhD student at [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), under the supervision of Professor [Jiaxin Mao](https://sites.google.com/site/maojiaxin/). My research interests include information retrieval and natural language processing, with a specific focus on **Large Language Models for Search** and **Retrieval-Augmented Generation**.
+My name is Qi Liu. I am a second-year PhD student at [Gaoling School of Artificial Intelligence](http://ai.ruc.edu.cn), [Renmin University of China](https://en.ruc.edu.cn), under the supervision of Professor [Jiaxin Mao](https://sites.google.com/site/maojiaxin/). My research interests include information retrieval and natural language processing, with a specific focus on **Large Language Models for Search** and **Agentic Search**.
 
 <!-- # *News*
 
@@ -25,6 +25,6 @@ My name is Qi Liu. I am a first-year PhD student at [Gaoling School of Artificia
 
 # Experiences
 
-- **May. 2025 - Present.** Research Internship, Tongyi Lab, Alibaba, Beijing, China.
+- **May. 2025 - Present.** Research Internship, Tongyi Lab, Alibaba Group, Beijing, China.
 - **Nov. 2023 - June. 2024.** Internship, Jina AI, Beijing, China.
 - **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
