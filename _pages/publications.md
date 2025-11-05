@@ -17,10 +17,12 @@ author_profile: true
 
 * **E2Rank: Your Text Embedding can Also be an Effective and Efficient Listwise Reranker** \
 ***Qi Liu***, Yanzhao Zhang, Mingxin Li, Dingkun Long, Pengjun Xie, Jiaxin Mao \
+Under review. \
 [Website](https://alibaba-nlp.github.io/E2Rank), [Preprint](https://arxiv.org/abs/2510.22733), 2025.10
 
 * **How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective** \
 ***Qi Liu***, Jiaxin Mao, Ji-Rong Wen \
+Just Accepted by ACM Transactions on Information Systems. (*TOIS*) \
 [Preprint](https://arxiv.org/abs/2504.07898), 2025.04
 
 * **LLM4Ranking: An Easy-to-use Framework of Utilizing Large Language Models for Document Reranking** \
