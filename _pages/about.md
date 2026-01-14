@@ -21,9 +21,9 @@ My research interests include information retrieval and natural language process
 
 # Education
 
-- **Sept. 2024 - Present.** PhD in Artificial Intelligence, Renmin University of China.
-- **Sept. 2020 - June. 2024.** B.Eng. in Artificial Intelligence, Renmin University of China.
-- **Sept. 2017 - June. 2020.** The Affiliated High School of SCNU.
+- **Sept. 2024 - Present.** PhD in Artificial Intelligence, Renmin University of China, Beijing, China.
+- **Sept. 2020 - June. 2024.** B.Eng. in Artificial Intelligence, Renmin University of China, Beijing, China.
+<!-- - **Sept. 2017 - June. 2020.** The Affiliated High School of SCNU. -->
 
 # Experiences
 
