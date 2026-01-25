@@ -1,0 +1,176 @@
+{
+  "publications": [
+    {
+      "title": "E2Rank: Your Text Embedding can Also be an Effective and Efficient Listwise Reranker",
+      "authors": [
+        "Qi Liu",
+        "Yanzhao Zhang",
+        "Mingxin Li",
+        "Dingkun Long",
+        "Pengjun Xie",
+        "Jiaxin Mao†"
+      ],
+      "venue": "Preprint (2025)",
+      "thumbnail": "images/papers/e2rank.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2510.22733v2",
+        "code": "https://github.com/Alibaba-NLP/E2Rank",
+        "project": "https://alibaba-nlp.github.io/E2Rank"
+      }
+    },
+    {
+      "title": "How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective",
+      "authors": [
+        "Qi Liu",
+        "Jiaxin Mao†",
+        "Ji-Rong Wen"
+      ],
+      "venue": "ACM Transactions on Information Systems (TOIS)",
+      "thumbnail": "images/papers/tois-relevance.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2504.07898"
+      }
+    },
+    {
+      "title": "LLM4Ranking: An Easy-to-use Framework of Utilizing Large Language Models for Document Reranking",
+      "authors": [
+        "Qi Liu",
+        "Haozhe Duan",
+        "Yiqun Chen",
+        "Quanfeng Lu",
+        "Weiwei Sun",
+        "Jiaxin Mao†"
+      ],
+      "venue": "Preprint (2025)",
+      "thumbnail": "images/papers/llm4ranking.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2504.07439",
+        "code": "https://github.com/liuqi6777/llm4ranking"
+      }
+    },
+    {
+      "title": "Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models",
+      "authors": [
+        "Qi Liu",
+        "Bo Wang",
+        "Nan Wang",
+        "Jiaxin Mao†"
+      ],
+      "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
+      "thumbnail": "images/papers/www25-perank.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2406.14848",
+        "code": "https://github.com/liuqi6777/pe_rank"
+      }
+    },
+    {
+      "title": "TourRank: Utilizing Large Language Models for Documents Ranking with a Tournament-Inspired Strategy",
+      "authors": [
+        "Yiqun Chen",
+        "Qi Liu",
+        "Yi Zhang",
+        "Weiwei Sun",
+        "Daiting Shi",
+        "Jiaxin Mao†",
+        "Dawei Yin"
+      ],
+      "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
+      "thumbnail": "images/papers/www25-tourrank.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2406.11678"
+      }
+    },
+    {
+      "title": "Mamba Retriever: Utilizing Mamba for Effective and Efficient Dense Retrieval",
+      "authors": [
+        "Hanqi Zhang",
+        "Chong Chen",
+        "Lang Mei",
+        "Qi Liu",
+        "Jiaxin Mao†"
+      ],
+      "venue": "Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM 2024)",
+      "thumbnail": "images/papers/cikm24-mamba.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2408.08066"
+      }
+    },
+    {
+      "title": "Multi-Task Contrastive Learning for 8192-Token Bilingual Text Embeddings",
+      "authors": [
+        "Isabelle Mohr",
+        "Markus Krimmel",
+        "Saba Sturua",
+        "Mohammad Kalim Akram",
+        "Andreas Koukounas",
+        "Michael Günther",
+        "Georgios Mastrapas",
+        "Vinit Ravishankar",
+        "Joan Fontanals Martínez",
+        "Feng Wang",
+        "Qi Liu",
+        "Ziniu Yu",
+        "Jie Fu",
+        "Saahil Ognawala",
+        "Susana Guzman",
+        "Bo Wang",
+        "Maximilian Werk",
+        "Nan Wang",
+        "Han Xiao"
+      ],
+      "venue": "Preprint (2024)",
+      "thumbnail": "images/papers/jina-embeddings-v2.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2402.17016"
+      }
+    },
+    {
+      "title": "An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models",
+      "authors": [
+        "Qi Liu*",
+        "Gang Guo*",
+        "Jiaxin Mao†",
+        "Zhicheng Dou",
+        "Ji-Rong Wen",
+        "Hao Jiang",
+        "Xinyu Zhang",
+        "Zhao Cao"
+      ],
+      "venue": "ACM Transactions on Information Systems (TOIS)",
+      "thumbnail": "images/papers/tois-pruning.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://dl.acm.org/doi/epdf/10.1145/3639818"
+      }
+    },
+    {
+      "title": "Understanding the Multi-vector Dense Retrieval Models",
+      "authors": [
+        "Qi Liu",
+        "Jiaxin Mao†"
+      ],
+      "venue": "Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM 2023)",
+      "thumbnail": "images/papers/cikm2023-mv.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://dl.acm.org/doi/epdf/10.1145/3583780.3615282"
+      }
+    }
+  ]
+}
