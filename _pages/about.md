@@ -27,7 +27,7 @@ My research interests include information retrieval and natural language process
 
 # Experiences
 
-- **Jan. 2026 - Present.** Visiting PhD Student, NExT Research Center, National University of Singapore, Singapore.
+- **Jan. 2026 - Present.** Visiting PhD Student, NExT++ Research Center, National University of Singapore, Singapore.
 - **May. 2025 - Jan. 2026.** Research Internship, Tongyi Lab, Alibaba Group, Beijing, China.
 - **Nov. 2023 - June. 2024.** Internship, Jina AI, Beijing, China.
 - **Jul. 2023 - Sept. 2023.** Internship, Xiaohongshu, Beijing, China.
