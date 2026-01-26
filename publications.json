@@ -14,7 +14,7 @@
         "Ji-Rong Wen"
       ],
       "venue": "Preprint (2026)",
-      "thumbnail": "images/papers/diffusion-rank.png",
+      "thumbnail": "assets/images/diffusion-rank.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -33,7 +33,7 @@
         "Jiaxin Mao"
       ],
       "venue": "Preprint (2025)",
-      "thumbnail": "images/papers/e2rank.png",
+      "thumbnail": "assets/images/e2rank.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -50,7 +50,7 @@
         "Ji-Rong Wen"
       ],
       "venue": "ACM Transactions on Information Systems (TOIS)",
-      "thumbnail": "images/papers/tois-relevance.png",
+      "thumbnail": "assets/images/tois-relevance.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -68,7 +68,7 @@
         "Jiaxin Mao"
       ],
       "venue": "Preprint (2025)",
-      "thumbnail": "images/papers/llm4ranking.png",
+      "thumbnail": "assets/images/llm4ranking.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -85,7 +85,7 @@
         "Jiaxin Mao"
       ],
       "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
-      "thumbnail": "images/papers/www25-perank.png",
+      "thumbnail": "assets/images/www25-perank.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -105,7 +105,7 @@
         "Dawei Yin"
       ],
       "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
-      "thumbnail": "images/papers/www25-tourrank.png",
+      "thumbnail": "assets/images/www25-tourrank.png",
       "selected": 0,
       "award": "",
       "links": {
@@ -122,7 +122,7 @@
         "Jiaxin Mao"
       ],
       "venue": "Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM 2024)",
-      "thumbnail": "images/papers/cikm24-mamba.png",
+      "thumbnail": "assets/images/cikm24-mamba.png",
       "selected": 0,
       "award": "",
       "links": {
@@ -153,7 +153,7 @@
         "Han Xiao"
       ],
       "venue": "Preprint (2024)",
-      "thumbnail": "images/papers/jina-embeddings-v2.png",
+      "thumbnail": "assets/images/jina-embeddings-v2.png",
       "selected": 0,
       "award": "",
       "links": {
@@ -173,7 +173,7 @@
         "Zhao Cao"
       ],
       "venue": "ACM Transactions on Information Systems (TOIS)",
-      "thumbnail": "images/papers/tois-pruning.png",
+      "thumbnail": "assets/images/tois-pruning.png",
       "selected": 1,
       "award": "",
       "links": {
@@ -187,7 +187,7 @@
         "Jiaxin Mao"
       ],
       "venue": "Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM 2023)",
-      "thumbnail": "images/papers/cikm2023-mv.png",
+      "thumbnail": "assets/images/cikm2023-mv.png",
       "selected": 1,
       "award": "",
       "links": {
