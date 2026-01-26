@@ -1,6 +1,28 @@
 {
   "publications": [
     {
+      "title": "DiffuRank: Effective Document Reranking with Diffusion Language Models",
+      "authors": [
+        "Qi Liu",
+        "Kun Ai",
+        "Jiaxin Mao",
+        "Yanzhao Zhang",
+        "Mingxin Li",
+        "Dingkun Long",
+        "Pengjun Xie",
+        "Fengbin Zhu",
+        "Ji-Rong Wen"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "images/papers/diffusion-rank.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2510.22733v2",
+        "code": "https://github.com/liuqi6777/DiffusionRank"
+      }
+    },
+    {
       "title": "E2Rank: Your Text Embedding can Also be an Effective and Efficient Listwise Reranker",
       "authors": [
         "Qi Liu",
@@ -8,7 +30,7 @@
         "Mingxin Li",
         "Dingkun Long",
         "Pengjun Xie",
-        "Jiaxin Mao†"
+        "Jiaxin Mao"
       ],
       "venue": "Preprint (2025)",
       "thumbnail": "images/papers/e2rank.png",
@@ -24,7 +46,7 @@
       "title": "How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective",
       "authors": [
         "Qi Liu",
-        "Jiaxin Mao†",
+        "Jiaxin Mao",
         "Ji-Rong Wen"
       ],
       "venue": "ACM Transactions on Information Systems (TOIS)",
@@ -43,7 +65,7 @@
         "Yiqun Chen",
         "Quanfeng Lu",
         "Weiwei Sun",
-        "Jiaxin Mao†"
+        "Jiaxin Mao"
       ],
       "venue": "Preprint (2025)",
       "thumbnail": "images/papers/llm4ranking.png",
@@ -60,7 +82,7 @@
         "Qi Liu",
         "Bo Wang",
         "Nan Wang",
-        "Jiaxin Mao†"
+        "Jiaxin Mao"
       ],
       "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
       "thumbnail": "images/papers/www25-perank.png",
@@ -79,7 +101,7 @@
         "Yi Zhang",
         "Weiwei Sun",
         "Daiting Shi",
-        "Jiaxin Mao†",
+        "Jiaxin Mao",
         "Dawei Yin"
       ],
       "venue": "Proceedings of the ACM Web Conference 2025 (WWW 2025)",
@@ -97,7 +119,7 @@
         "Chong Chen",
         "Lang Mei",
         "Qi Liu",
-        "Jiaxin Mao†"
+        "Jiaxin Mao"
       ],
       "venue": "Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM 2024)",
       "thumbnail": "images/papers/cikm24-mamba.png",
@@ -143,7 +165,7 @@
       "authors": [
         "Qi Liu*",
         "Gang Guo*",
-        "Jiaxin Mao†",
+        "Jiaxin Mao",
         "Zhicheng Dou",
         "Ji-Rong Wen",
         "Hao Jiang",
@@ -162,11 +184,11 @@
       "title": "Understanding the Multi-vector Dense Retrieval Models",
       "authors": [
         "Qi Liu",
-        "Jiaxin Mao†"
+        "Jiaxin Mao"
       ],
       "venue": "Proceedings of the 32nd ACM International Conference on Information and Knowledge Management (CIKM 2023)",
       "thumbnail": "images/papers/cikm2023-mv.png",
-      "selected": 0,
+      "selected": 1,
       "award": "",
       "links": {
         "pdf": "https://dl.acm.org/doi/epdf/10.1145/3583780.3615282"
