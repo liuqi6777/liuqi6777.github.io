@@ -1,6 +1,75 @@
 {
   "publications": [
     {
+      "title": "Fetch-then-Explore: Decoupling Document Selection from Evidence Extraction in Search Agents",
+      "authors": [
+        "Qi Liu",
+        "Yiqun Chen",
+        "Zidan Chen",
+        "Yan Gao",
+        "Yi Wu",
+        "Yao Hu",
+        "Jiaxin Mao",
+        "Fengbin Zhu",
+        "Tat-Seng Chua"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "assets/images/fetch-then-explore.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2608.02097",
+        "code": "https://github.com/liuqi6777/search_agent"
+      }
+    },
+    {
+      "title": "Diagnosing Search Behavior and Failure Modes in Long-Horizon Search Agents",
+      "authors": [
+        "Qi Liu",
+        "Jiaxin Mao",
+        "Fengbin Zhu",
+        "Tat-Seng Chua"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "assets/images/diagnosing.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2608.01913",
+        "code": "https://github.com/liuqi6777/search_agent"
+      }
+    },
+    {
+      "title": "UnityMAS-O: A General RL Optimization Framework for LLM-Based Multi-Agent Systems",
+      "authors": [
+        "Yiqun Chen",
+        "Wei Yang",
+        "Erhan Zhang",
+        "Shijie Wang",
+        "Qi Liu",
+        "Zechun Niu",
+        "Bin Zhang",
+        "Haitao Li",
+        "Rui Li",
+        "Lingyong Yan",
+        "Jinyuan Feng",
+        "Biqing Qi",
+        "Xiaochi Wei",
+        "Yan Gao",
+        "Yi Wu",
+        "Yao Hu",
+        "Jiaxin Mao"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "assets/images/unitymas-o.png",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2605.26646",
+        "code": "https://github.com/chenyiqun/UnityMAS-O"
+      }
+    },
+    {
       "title": "DiffuRank: Effective Document Reranking with Diffusion Language Models",
       "authors": [
         "Qi Liu",
@@ -18,7 +87,7 @@
       "selected": 1,
       "award": "",
       "links": {
-        "pdf": "http://arxiv.org/abs/2602.12528",
+        "pdf": "http://arxiv.org/pdf/2602.12528",
         "code": "https://github.com/liuqi6777/DiffusionRank"
       }
     },
