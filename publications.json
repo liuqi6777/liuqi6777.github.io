@@ -1,7 +1,7 @@
 {
   "publications": [
     {
-      "title": "Fetch-then-Explore: Decoupling Document Selection from Evidence Extraction in Search Agents",
+      "title": "Fetch-then-Explore: Decoupling Selection from Extraction over a Persistent Workspace for Search Agents",
       "authors": [
         "Qi Liu",
         "Yiqun Chen",
