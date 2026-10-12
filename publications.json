@@ -1,6 +1,78 @@
 {
   "publications": [
     {
+      "title": "OpenSaC: A Python Library for Search as Code in Deep Research Agents",
+      "authors": [
+        "Qi Liu",
+        "Jiaxin Mao"
+      ],
+      "venue": "Ongoing",
+      "thumbnail": "assets/images/opensac.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "code": "https://github.com/liuqi6777/OpenSaC"
+      }
+    },
+    {
+      "title": "Learning to Retrieve via Reinforcement Learning in Embedding Space",
+      "authors": [
+        "Qi Liu",
+        "Fengming Liang",
+        "Yiqun Chen",
+        "Erhan Zhang",
+        "Jiaxin Mao"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "assets/images/reler.png",
+      "selected": 1,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/abs/2610.07731",
+        "code": "https://github.com/liuqi6777/RELER"
+      }
+    },
+    {
+      "title": "MatrixReward: Reward from Rubric Matrix for Open-Ended Generation",
+      "authors": [
+        "Zihan Shen*",
+        "Qi Liu*",
+        "Zixuan Yang",
+        "Yiqun Chen",
+        "Chenglong Zhao",
+        "Xiaozhao Wang",
+        "Lei He"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2610.00389"
+      }
+    },
+    {
+      "title": "RankBuffer: Efficient Ranking-Based Rewards for Open-Ended Generation",
+      "authors": [
+        "Zixuan Yang",
+        "Yiqun Chen",
+        "Qi Liu",
+        "Wei Yang",
+        "Erhan Zhang",
+        "Liyi Chen",
+        "Qimeng Wang",
+        "Yan Gao",
+        "Jiaxin Mao"
+      ],
+      "venue": "Preprint (2026)",
+      "thumbnail": "",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2609.36652"
+      }
+    },
+    {
       "title": "Fetch-then-Explore: Decoupling Selection from Extraction over a Persistent Workspace for Search Agents",
       "authors": [
         "Qi Liu",
@@ -30,13 +102,34 @@
         "Fengbin Zhu",
         "Tat-Seng Chua"
       ],
-      "venue": "Preprint (2026)",
+      "venue": "Proceedings of the 4th International ACM SIGIR Conference on Information Retrieval in the Asia Pacific (SIGIR-AP 2026)",
       "thumbnail": "assets/images/diagnosing.png",
       "selected": 1,
       "award": "",
       "links": {
         "pdf": "https://arxiv.org/pdf/2608.01913",
         "code": "https://github.com/liuqi6777/search_agent"
+      }
+    },
+    {
+      "title": "MCP-Focus: Leveraging Function-Oriented Document Enhancement for MCP Server Retrieval",
+      "authors": [
+        "Wenchun Jing",
+        "Haiyang Shen",
+        "Haoran Wang",
+        "Qi Liu",
+        "Ningyuan Li",
+        "Chaoran Luo",
+        "Ning Zhang",
+        "Yun Ma"
+      ],
+      "venue": "Proceedings of the 49th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2026)",
+      "thumbnail": "",
+      "selected": 0,
+      "award": "",
+      "links": {
+        "pdf": "https://dl.acm.org/doi/pdf/10.1145/3805712.3809582",
+        "code": "https://github.com/JingWC/MCP-Focus"
       }
     },
     {
@@ -115,6 +208,7 @@
       "title": "How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective",
       "authors": [
         "Qi Liu",
+        "Haozhe Duan",
         "Jiaxin Mao",
         "Ji-Rong Wen"
       ],

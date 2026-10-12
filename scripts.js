@@ -54,9 +54,9 @@ function togglePublications() {
   
   // Update button text
   const toggleButton = document.getElementById('toggle-publications');
-  toggleButton.textContent = showingSelected ? 'Show All' : 'Show Selected';
+  toggleButton.textContent = showingSelected ? 'Show All' : 'Show First Author';
   const toggleHeader = document.getElementById('toggle-header');
-  toggleHeader.textContent = showingSelected ? 'Selected Publications' : 'All Publications';
+  toggleHeader.textContent = showingSelected ? 'First-Author Publications' : 'All Publications';
 }
 
 // Render publications based on selection state
@@ -64,8 +64,8 @@ function renderPublications(selectedOnly) {
   const publicationsContainer = document.getElementById('publications-container');
   publicationsContainer.innerHTML = '';
   
-  const pubsToShow = selectedOnly ? 
-    allPublications.filter(pub => pub.selected === 1) : 
+  const pubsToShow = selectedOnly ?
+    allPublications.filter(pub => pub.authors[0]?.replace(/\*$/, '') === 'Qi Liu') :
     allPublications;
   
   pubsToShow.forEach(publication => {
@@ -82,12 +82,16 @@ function createPublicationElement(publication) {
   // Create thumbnail
   const thumbnail = document.createElement('div');
   thumbnail.className = 'pub-thumbnail';
-  thumbnail.onclick = () => openModal(publication.thumbnail);
-  
-  const thumbnailImg = document.createElement('img');
-  thumbnailImg.src = publication.thumbnail;
-  thumbnailImg.alt = `${publication.title} thumbnail`;
-  thumbnail.appendChild(thumbnailImg);
+  if (publication.thumbnail) {
+    thumbnail.onclick = () => openModal(publication.thumbnail);
+    const thumbnailImg = document.createElement('img');
+    thumbnailImg.src = publication.thumbnail;
+    thumbnailImg.alt = `${publication.title} thumbnail`;
+    thumbnail.appendChild(thumbnailImg);
+  } else {
+    thumbnail.classList.add('pub-thumbnail-placeholder');
+    thumbnail.textContent = 'Publication';
+  }
   
   // Create content container
   const content = document.createElement('div');
