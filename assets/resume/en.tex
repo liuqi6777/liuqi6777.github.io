@@ -1,0 +1,90 @@
+\documentclass{resume}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella-regular.otf}[
+  BoldFont=texgyrepagella-bold.otf,
+  ItalicFont=texgyrepagella-italic.otf,
+  BoldItalicFont=texgyrepagella-bolditalic.otf
+]
+\usepackage[left=0.55in,top=0.45in,right=0.55in,bottom=0.45in]{geometry}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em,nosep,topsep=2pt}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=4pt,topsep=2pt}
+\def\sectionskip{\smallskip}
+\def\sectionlineskip{\smallskip}
+
+\newcommand{\pubentry}[5]{\item\label{pub:#1} \href{#2}{\textbf{#3}}\\[-1pt]{\small #4}\\[-1pt]{\small\emph{#5}.}}
+\newcommand{\workref}[2]{\hyperref[pub:#1]{\emph{#2}}}
+\name{Qi Liu}
+\photo{../profile.jpg}
+\address{Beijing, China \\ +86 137-9812-2637 \\ \href{mailto:qiliu6777@gmail.com}{qiliu6777@gmail.com}}
+\address{\href{https://liuqi6777.github.io/}{Website} \\ \href{https://scholar.google.com/citations?user=FS--V2oAAAAJ}{Google Scholar} \\ \href{https://github.com/liuqi6777}{GitHub}}
+\begin{document}
+
+\begin{rSection}{Education}
+\textbf{Renmin University of China}, Gaoling School of Artificial Intelligence \hfill Sep 2024--present \\
+PhD student in Artificial Intelligence; advisor: Prof. Jiaxin Mao \hfill Beijing, China
+
+\textbf{Renmin University of China}, Gaoling School of Artificial Intelligence \hfill Sep 2020--Jun 2024 \\
+BEng in Artificial Intelligence \hfill Beijing, China
+\end{rSection}
+
+\begin{rSection}{Research Directions}
+\textbf{I. LLM for Search}
+
+\textbf{Multi-vector retrieval.} My early \workref{p08}{model analysis} and \workref{p07}{matching and pruning study} explored how multi-vector retrieval balances effectiveness and efficiency. I also led development of the open-source long-context late-interaction retriever \href{https://huggingface.co/jinaai/jina-colbert-v1-en}{jina-colbert}.
+
+\textbf{Dense retrieval models.} From the bilingual \href{https://huggingface.co/jinaai/jina-embeddings-v2-base-zh}{jina-embeddings-v2} model, I moved toward broader uses of embeddings: \workref{p03}{E2Rank} extends them to listwise reranking, and \workref{p01}{Learning to Retrieve} explores reinforcement learning in embedding space.
+
+\textbf{LLM for reranking.} This line spans efficient listwise ranking \workref{p06}{with passage embeddings}, reusable methods in \workref{p05}{LLM4Ranking}, \workref{p04}{relevance interpretation}, and the diffusion-based approach \workref{p02}{DiffuRank}.
+
+\medskip
+\textbf{II. Search Agents}
+
+\textbf{Behavior and information acquisition.} I analyze how long-horizon agents search and where they fail in \workref{p11}{Diagnosing Search Behavior}; \workref{p10}{Fetch-then-Explore} then separates source selection from extraction over a persistent workspace.
+
+\textbf{Search as Code (ongoing).} I am developing \workref{p09}{OpenSaC}, a Python interface that lets deep-research agents organize and execute search through code.
+\end{rSection}
+
+\begin{rSection}{Technical Skills}
+\textbf{Coding:} Python, Linux, and Git; working knowledge of C/C++, SQL, and Bash. Proficient with Codex and Claude Code for implementation, debugging, and research prototyping.
+
+\textbf{AI frameworks:} PyTorch, Hugging Face Transformers, DeepSpeed, vLLM, slime, and Pyserini for model training, inference, and retrieval; Harbor for agent evaluation.
+\end{rSection}
+
+\begin{rSection}{Research and Industry Experience}
+\textbf{Xiaohongshu} \hfill May 2026--present \\
+Research intern \hfill Beijing, China
+
+\textbf{NExT++ Research Center, National University of Singapore} \hfill Jan--Jul 2026 \\
+Visiting PhD student; worked with Dr. Fengbin Zhu and Prof. Tat-Seng Chua on search agents. \hfill Singapore
+
+\textbf{Tongyi Lab, Alibaba Group} \hfill May 2025--Jan 2026 \\
+Research intern; worked on text embedding and reranking models. \hfill Beijing, China
+
+\textbf{Jina AI} \hfill Nov 2023--Jun 2024 \\
+Research intern; developed embedding and retrieval models \hfill Beijing, China
+
+\textbf{Xiaohongshu} \hfill Jul--Sep 2023 \\
+NLP algorithm intern \hfill Beijing, China
+\end{rSection}
+
+\newpage
+\begin{rSection}{Selected Publications}
+{\sloppy
+\begin{enumerate}
+\pubentry{p09}{https://github.com/liuqi6777/OpenSaC}{OpenSaC: A Python Library for Search as Code in Deep Research Agents}{\textbf{Qi Liu}, Jiaxin Mao}{Preprint, 2026}
+\pubentry{p01}{https://arxiv.org/abs/2610.07731}{Learning to Retrieve via Reinforcement Learning in Embedding Space}{\textbf{Qi Liu}, Fengming Liang, Yiqun Chen, Erhan Zhang, Jiaxin Mao}{Preprint, 2026}
+\pubentry{p10}{https://arxiv.org/pdf/2608.02097}{Fetch-then-Explore: Decoupling Selection from Extraction over a Persistent Workspace for Search Agents}{\textbf{Qi Liu}, Yiqun Chen, Zidan Chen, Yan Gao, Yi Wu, Yao Hu, Jiaxin Mao, Fengbin Zhu, Tat-Seng Chua}{Preprint, 2026}
+\pubentry{p11}{https://arxiv.org/pdf/2608.01913}{Diagnosing Search Behavior and Failure Modes in Long-Horizon Search Agents}{\textbf{Qi Liu}, Jiaxin Mao, Fengbin Zhu, Tat-Seng Chua}{SIGIR-AP 2026}
+\pubentry{p02}{http://arxiv.org/pdf/2602.12528}{DiffuRank: Effective Document Reranking with Diffusion Language Models}{\textbf{Qi Liu}, Kun Ai, Jiaxin Mao, Yanzhao Zhang, Mingxin Li, Dingkun Long, Pengjun Xie, Fengbin Zhu, Ji-Rong Wen}{Preprint, 2026}
+\pubentry{p03}{https://arxiv.org/pdf/2510.22733v2}{E2Rank: Your Text Embedding can Also be an Effective and Efficient Listwise Reranker}{\textbf{Qi Liu}, Yanzhao Zhang, Mingxin Li, Dingkun Long, Pengjun Xie, Jiaxin Mao}{EMNLP 2026}
+\pubentry{p04}{https://arxiv.org/pdf/2504.07898}{How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective}{\textbf{Qi Liu}, Haozhe Duan, Jiaxin Mao, Ji-Rong Wen}{ACM Transactions on Information Systems, 2025}
+\pubentry{p05}{https://arxiv.org/pdf/2504.07439}{LLM4Ranking: An Easy-to-use Framework of Utilizing Large Language Models for Document Reranking}{\textbf{Qi Liu}, Haozhe Duan, Yiqun Chen, Quanfeng Lu, Weiwei Sun, Jiaxin Mao}{Preprint, 2025}
+\pubentry{p06}{https://arxiv.org/pdf/2406.14848}{Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models}{\textbf{Qi Liu}, Bo Wang, Nan Wang, Jiaxin Mao}{WWW 2025}
+\pubentry{p07}{https://dl.acm.org/doi/epdf/10.1145/3639818}{An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models}{\textbf{Qi Liu}*, Gang Guo*, Jiaxin Mao, Zhicheng Dou, Ji-Rong Wen, Hao Jiang, Xinyu Zhang, Zhao Cao}{ACM Transactions on Information Systems, 2023}
+\pubentry{p08}{https://dl.acm.org/doi/epdf/10.1145/3583780.3615282}{Understanding the Multi-vector Dense Retrieval Models}{\textbf{Qi Liu}, Jiaxin Mao}{CIKM 2023}
+\end{enumerate}
+}
+\end{rSection}
+
+\end{document}

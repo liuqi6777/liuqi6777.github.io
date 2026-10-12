@@ -1,0 +1,97 @@
+\documentclass{resume}
+\usepackage{fontspec}
+\setmainfont{Hiragino Sans GB.ttc}[
+  Path=/System/Library/Fonts/,
+  FontIndex=0,
+  BoldFont={Hiragino Sans GB.ttc},
+  BoldFeatures={FontIndex=2}
+]
+\newfontfamily\songtiheading{Songti.ttc}[
+  Path=/System/Library/Fonts/Supplemental/,
+  FontIndex=1
+]
+\renewcommand{\resumeheadingfont}{\songtiheading}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip=0pt plus 1pt
+\newfontfamily\publicationfont{texgyrepagella-regular.otf}[
+  BoldFont=texgyrepagella-bold.otf,
+  ItalicFont=texgyrepagella-italic.otf,
+  BoldItalicFont=texgyrepagella-bolditalic.otf
+]
+\usepackage[left=0.55in,top=0.45in,right=0.55in,bottom=0.45in]{geometry}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em,nosep,topsep=2pt}
+\setlist[enumerate]{leftmargin=1.5em,itemsep=4pt,topsep=2pt}
+
+\newcommand{\pubentry}[5]{\item\label{pub:#1} \href{#2}{\textbf{#3}}\\[-1pt]{\small #4}\\[-1pt]{\small\emph{#5}.}}
+\newcommand{\workref}[2]{\hyperref[pub:#1]{\emph{#2}}}
+\name{刘琦}
+\photo{../profile.jpg}
+\address{北京，中国 \\ +86 137-9812-2637 \\ \href{mailto:qiliu6777@gmail.com}{qiliu6777@gmail.com}}
+\address{\href{https://liuqi6777.github.io/}{个人主页} \\ \href{https://scholar.google.com/citations?user=FS--V2oAAAAJ}{Google Scholar} \\ \href{https://github.com/liuqi6777}{GitHub}}
+\begin{document}
+
+\begin{rSection}{教育背景}
+\textbf{中国人民大学}，高瓴人工智能学院 \hfill 2024.09--至今 \\
+人工智能专业，博士研究生；导师：毛佳昕教授 \hfill 北京
+
+\textbf{中国人民大学}，高瓴人工智能学院 \hfill 2020.09--2024.06 \\
+人工智能专业，工学学士 \hfill 北京
+\end{rSection}
+
+\begin{rSection}{研究方向}
+\textbf{方向一：大语言模型与搜索}
+
+\textbf{多向量检索。}聚焦多向量检索的\workref{p08}{效果}与\workref{p07}{效率}分析；同时主导开发开源长文本多向量检索模型 \href{https://huggingface.co/jinaai/jina-colbert-v1-en}{jina-colbert}。
+
+\textbf{稠密向量检索模型。}熟悉主流向量模型训练范式与流程并参与 \href{https://huggingface.co/jinaai/jina-embeddings-v2-base-zh}{jina-embeddings-v2} 开发，并进行向量模型范式扩展研究（\workref{p03}{E2Rank} 统一检索和排序模型，\workref{p01}{RELER} 探索通过强化学习使用下游任务奖励训练检索模型）。
+
+{\sloppy\textbf{大语言模型重排序。} 开发 \workref{p05}{LLM4Ranking} 框架，进行使用大语言模型进行重排序的\workref{p04}{相关性机制探究}、效率优化（\workref{p06}{PE-Rank}、\workref{p03}{E2Rank}），以及新范式研究（\workref{p02}{DiffuRank}）。\par}
+
+\medskip
+\textbf{方向二：搜索智能体}
+
+\textbf{搜索行为与失败诊断。}通过\workref{p11}{长程搜索智能体行为分析}，区分未找到关键证据的检索缺口与找到却未正确利用证据的利用缺口；分析搜索次数、累计证据召回与答案质量的关系，定位冗余查询和低收益搜索，为查询改写与搜索停止策略提供依据。
+
+\textbf{信息获取与证据管理。}围绕搜索智能体的搜索与文档获取与访问的工具和框架，对其机制与性能进行公平的对比与分析，探究将文档选择与证据提取解耦后，持久化工作区如何支持按需提取证据、跨轮次回访页面，进一步考察这一机制对重复获取、上下文负担及首次阅读遗漏证据的影响（\workref{p10}{FtE}）。
+
+\textbf{Search as Code（近期主要工作）。}开发 \workref{p09}{OpenSaC} 框架，提供可扩展的 Python 接口，将搜索、页面抓取、重排序与信息提取组合为可通过代码编排的研究流程，并支持独立配置服务提供方与不同智能体的调用方式，在 Codex 环境下获得了比其原生搜索更好的端到端性能。正在探索使用强化学习训练代码搜索智能体。
+\end{rSection}
+
+\begin{rSection}{技术能力}
+\textbf{Coding：}熟练使用 Python 和 Linux 开发环境；熟练使用 Codex、Claude Code 等工具。
+
+\textbf{AI 框架：}熟悉 DeepSpeed、vLLM、slime 等模型训练和推理框架；熟悉 Harbor 等智能体评测框架，具备丰富的搜索智能体开发与实践经验，熟悉智能体基本机制与前沿进展。
+\end{rSection}
+
+\begin{rSection}{研究与实习经历}
+\textbf{新加坡国立大学 NExT++ 研究中心} \hfill 2026.01--2026.07 \\
+访问博士生；与朱凤彬博士、Tat-Seng Chua 教授合作开展搜索智能体研究。 \hfill 新加坡
+
+\textbf{阿里巴巴通义实验室} \hfill 2025.05--2026.01 \\
+研究实习生；研究文本向量模型与重排序模型。 \hfill 北京
+
+\textbf{Jina AI} \hfill 2023.11--2024.06 \\
+研究实习生；研究文本向量模型与多向量迟交互检索模型。 \hfill 北京
+\end{rSection}
+
+\newpage
+\begin{rSection}{主要论文成果}
+{\publicationfont\sloppy
+\begin{enumerate}
+\pubentry{p09}{https://github.com/liuqi6777/OpenSaC}{OpenSaC: A Python Library for Search as Code in Deep Research Agents}{\textbf{Qi Liu}, Jiaxin Mao}{Github Repo}
+\pubentry{p01}{https://arxiv.org/abs/2610.07731}{Learning to Retrieve via Reinforcement Learning in Embedding Space}{\textbf{Qi Liu}, Fengming Liang, Yiqun Chen, Erhan Zhang, Jiaxin Mao}{Preprint, 2026}
+\pubentry{p10}{https://arxiv.org/pdf/2608.02097}{Fetch-then-Explore: Decoupling Selection from Extraction over a Persistent Workspace for Search Agents}{\textbf{Qi Liu}, Yiqun Chen, Zidan Chen, Yan Gao, Yi Wu, Yao Hu, Jiaxin Mao, Fengbin Zhu, Tat-Seng Chua}{Preprint, 2026}
+\pubentry{p11}{https://arxiv.org/pdf/2608.01913}{Diagnosing Search Behavior and Failure Modes in Long-Horizon Search Agents}{\textbf{Qi Liu}, Jiaxin Mao, Fengbin Zhu, Tat-Seng Chua}{SIGIR-AP 2026}
+\pubentry{p02}{http://arxiv.org/pdf/2602.12528}{DiffuRank: Effective Document Reranking with Diffusion Language Models}{\textbf{Qi Liu}, Kun Ai, Jiaxin Mao, Yanzhao Zhang, Mingxin Li, Dingkun Long, Pengjun Xie, Fengbin Zhu, Ji-Rong Wen}{Preprint, 2026}
+\pubentry{p03}{https://arxiv.org/pdf/2510.22733v2}{E2Rank: Your Text Embedding can Also be an Effective and Efficient Listwise Reranker}{\textbf{Qi Liu}, Yanzhao Zhang, Mingxin Li, Dingkun Long, Pengjun Xie, Jiaxin Mao}{EMNLP 2026}
+\pubentry{p04}{https://arxiv.org/pdf/2504.07898}{How do Large Language Models Understand Relevance? A Mechanistic Interpretability Perspective}{\textbf{Qi Liu}, Haozhe Duan, Jiaxin Mao, Ji-Rong Wen}{ACM Transactions on Information Systems, 2025}
+\pubentry{p05}{https://arxiv.org/pdf/2504.07439}{LLM4Ranking: An Easy-to-use Framework of Utilizing Large Language Models for Document Reranking}{\textbf{Qi Liu}, Haozhe Duan, Yiqun Chen, Quanfeng Lu, Weiwei Sun, Jiaxin Mao}{Preprint, 2025}
+\pubentry{p06}{https://arxiv.org/pdf/2406.14848}{Leveraging Passage Embeddings for Efficient Listwise Reranking with Large Language Models}{\textbf{Qi Liu}, Bo Wang, Nan Wang, Jiaxin Mao}{WWW 2025}
+\pubentry{p07}{https://dl.acm.org/doi/epdf/10.1145/3639818}{An Analysis on Matching Mechanisms and Token Pruning for Late-interaction Models}{\textbf{Qi Liu}*, Gang Guo*, Jiaxin Mao, Zhicheng Dou, Ji-Rong Wen, Hao Jiang, Xinyu Zhang, Zhao Cao}{ACM Transactions on Information Systems, 2023}
+\pubentry{p08}{https://dl.acm.org/doi/epdf/10.1145/3583780.3615282}{Understanding the Multi-vector Dense Retrieval Models}{\textbf{Qi Liu}, Jiaxin Mao}{CIKM 2023}
+\end{enumerate}
+}
+\end{rSection}
+
+\end{document}
